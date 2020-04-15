@@ -1,4 +1,5 @@
 /** @jsx jsx */
+import "@babel/polyfill";
 import React from 'react';
 import { jsx } from 'theme-ui';
 import ReactDOM from 'react-dom';
