@@ -29,7 +29,9 @@ const Login = ({loggedIn}) => {
     e.preventDefault();
     const url = process.env.API_URL;
     setLoading(true)
-    setLoading(true);
+    loggedIn();
+    console.log(`URL = ${url}`);
+    
 
     try {
       const response = await Axios({
