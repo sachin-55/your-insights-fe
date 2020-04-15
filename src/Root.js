@@ -7,9 +7,15 @@ import { BrowserRouter as Router,Switch,Route } from 'react-router-dom';
 import LandingPage from "./pages/Landingpage";
 
 const Root = () => {
+    const [loggedInStatus,setLoggedInStatus] = React.useState(true);
+    const [user,setUser]=React.useState('');
+
+
     return (
         <ThemeProvider theme={theme}>
             <Router>
+                <Titlebar loggedIn={loggedInStatus} userData={user}/>
+
                 <Switch>
                     <Route exact path="/">
                         <LandingPage />
