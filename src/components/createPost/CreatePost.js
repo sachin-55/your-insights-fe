@@ -4,14 +4,14 @@ import BackDimLight from "../dimbackground";
 import Button from "../button";
 import Editor from '../editor';
 import axios from 'axios';
-import {  useLocation } from "react-router-dom";
+import {  useLocation ,useHistory} from "react-router-dom";
 
 const CreatePost = ({ closePost,initialTitle,initialContent,id,type }) => {
   const [title,setTitle] = React.useState(initialTitle);
   const [content, setContent] = React.useState(initialContent);
   const [files, setFiles] = React.useState([]);
   const [loading,setLoading]= React.useState(false);
-
+const history=useHistory();
 
   const onTitleChange =(e)=>{
     const target = e.target;
@@ -50,7 +50,7 @@ try{
   .then((response)=>{
     if(response.data){
       setLoading(false)
-      window.location.reload(true)      
+      history.push('/home');
     }
     
 })
@@ -81,7 +81,8 @@ const handleEdit=async (e)=>{
   .then((response)=>{
     if(response.data){
       setLoading(false)
-      window.location.reload(true)      
+      history.push('/home');
+
     }
     
 })

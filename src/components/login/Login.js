@@ -30,7 +30,6 @@ const Login = ({loggedIn}) => {
     const url = process.env.API_URL;
     setLoading(true)
     loggedIn();
-    console.log(`URL = ${url}`);
     
 
     try {
