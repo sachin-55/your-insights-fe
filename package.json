@@ -1,5 +1,5 @@
 {
-  "name": "matchfinder-frontend",
+  "name": "your-insights-frontend",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "start": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "sachin bhattarai",
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.8.7",
