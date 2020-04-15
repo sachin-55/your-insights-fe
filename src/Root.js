@@ -1,17 +1,22 @@
 import React from 'react';
 import './app.scss';
+import "./reset.css";
 import theme from '../theme/theme';
 import { ThemeProvider } from 'theme-ui';
 import { BrowserRouter as Router } from 'react-router-dom';
+import LandingPage from "./pages/Landingpage";
 
 const Root = () => {
     return (
         <ThemeProvider theme={theme}>
             <Router>
-                <div className="match">
-                    <h1>Match Finder</h1>
-                 Higher Root
-                </div>
+                <Switch>
+                    <Route exact path="/">
+                        <LandingPage />
+                    </Route>
+                    <Route render={() => <h1>Not Found</h1>} />
+
+                </Switch>
             </Router>
         </ThemeProvider>
     );
