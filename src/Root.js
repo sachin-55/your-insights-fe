@@ -3,7 +3,7 @@ import './app.scss';
 import "./reset.css";
 import theme from '../theme/theme';
 import { ThemeProvider } from 'theme-ui';
-import { BrowserRouter as Router } from 'react-router-dom';
+import { BrowserRouter as Router,Switch,Route } from 'react-router-dom';
 import LandingPage from "./pages/Landingpage";
 
 const Root = () => {
