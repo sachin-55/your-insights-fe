@@ -1,14 +1,23 @@
 import React from "react";
 import { Box } from "theme-ui";
-
+import Button from "../components/button";
+// import Login from "../components/login";
+// import Signup from "../components/signup";
+// import Banner from "../components/banner";
 
 const Landingpage = (props) => {
   const [active, setActive] = React.useState("old");
   const tabColor1 = active === "old" ? "accent" : "transparent";
   const tabColor2 = active === "new" ? "accent" : "transparent";
 
+// React.useEffect(()=>{
+// props.onLogout()
+// },[])
+
   return (
     <>
+
+      {/* <Banner /> */}
 
       <Box>
         <Box
@@ -50,7 +59,14 @@ const Landingpage = (props) => {
             padding: "4"
           }}
         >
-          {active === "old" ? <Box>Login</Box>: <Box>Signup</Box>}
+          {active === "old" ? 
+          // <Login  loggedIn={props.onLogin}/>
+          <Box>Login</Box> 
+          :
+          <Box>Signup</Box> 
+
+          //  <Signup  loggedIn={props.onLogin} />
+           }
         </Box>
       </Box>
     </>

@@ -1,33 +1,47 @@
-import React from 'react';
-import './app.scss';
+import React, { Suspense } from "react";
+import "./app.scss";
 import "./reset.css";
-import theme from '../theme/theme';
-import { ThemeProvider } from 'theme-ui';
-import { BrowserRouter as Router,Switch,Route } from 'react-router-dom';
+import { ThemeProvider } from "theme-ui";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import theme from "../theme/theme";
 import LandingPage from "./pages/Landingpage";
+// import HomePage from "./pages/Homepage";
+import Footer from "./components/footer";
+// import Profile from './components/profile';
+// import Blog from './components/blog';
 import Titlebar from './components/titlebar';
 
+const Root = () =>{
+const [loggedInStatus,setLoggedInStatus] = React.useState(false);
+const [user,setUser]=React.useState('');
 
-const Root = () => {
-    const [loggedInStatus,setLoggedInStatus] = React.useState(true);
-    const [user,setUser]=React.useState('');
-
-
-    return (
-        <ThemeProvider theme={theme}>
-            <Router>
-                <Titlebar loggedIn={loggedInStatus} userData={user}/>
-
-                <Switch>
-                    <Route exact path="/">
-                        <LandingPage />
-                    </Route>
-                    <Route render={() => <h1>Not Found</h1>} />
-
-                </Switch>
-            </Router>
-        </ThemeProvider>
-    );
+const setUserData=(data)=>{
+  setUser(data)
 }
+
+ return(
+  <ThemeProvider theme={theme}>
+    <Router>
+      <Titlebar loggedIn={loggedInStatus} userData={user}/>
+
+      <Switch>
+        <Route exact path="/">
+          <LandingPage    onLogin={()=>setLoggedInStatus(true)} onLogout={()=>setLoggedInStatus(false)}/>
+        </Route>
+        {/* <Route exact path="/home">
+          <HomePage fillData={(data)=>setUserData(data)} />
+        </Route>
+        <Route exact path="/profile/:userId">
+          <Profile />
+        </Route>
+        <Route exact path="/blog/:blogId">
+          <Blog />
+        </Route> */}
+        <Route render={() => <h1>Not Found</h1>} />
+      </Switch>
+      <Footer />
+    </Router>
+  </ThemeProvider>
+);}
 
 export default Root;

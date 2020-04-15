@@ -1,6 +1,7 @@
 import React from "react";
-import { Box, Text,Button, Avatar,useColorMode } from "theme-ui";
+import { Box, Text, Avatar,useColorMode } from "theme-ui";
 import { Link,useLocation } from "react-router-dom";
+import Button from './../button';
 import './titlebar.scss'
 const Titlebar = ({ loggedIn,userData }) => { 
   const [mode,setMode] = useColorMode();
