@@ -1,8 +1,19 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const path = require('path')
 const Fiber = require('fibers');
+const webpack = require("webpack");
+const dotenv = require("dotenv");
 
-const PORT = process.env.PORT || 8000;
+
+const env = dotenv.config({ path: `${__dirname}/config.env` }).parsed;
+
+// reduce it to a nice object, the same as before
+const envKeys = Object.keys(env).reduce((prev, next) => {
+    prev[`process.env.${next}`] = JSON.stringify(env[next]);
+    return prev;
+  }, {});
+  
+  // const PORT = process.env.PORT;
 
 module.exports = {
     entry: [
@@ -65,11 +76,13 @@ module.exports = {
         new HtmlWebPackPlugin({
             template: "./index.html",
             filename: "./index.html"
-        })
+        }),
+        new webpack.DefinePlugin(envKeys)
     ],
     devServer: {
+        contentBase: "./build",
         host: 'localhost',
-        port: PORT,
+        port: process.env.PORT,
         historyApiFallback: true,
         open: true,
         inline: true,
