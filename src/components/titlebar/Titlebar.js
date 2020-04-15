@@ -6,7 +6,7 @@ import './titlebar.scss'
 const Titlebar = ({ loggedIn,userData }) => { 
   const [mode,setMode] = useColorMode();
   const location = useLocation();
-  const [name,setName] = React.useState('');
+  const [name,setName] = React.useState(''); 
 
 React.useEffect(()=>{
   if(userData){
@@ -57,8 +57,8 @@ React.useEffect(()=>{
         <Button style={{ outline:'none' ,cursor:'pointer', color: "#dfe3e8" }} onClick={toggleTheme}>
         {mode === 'dark'? '💡': '⚫️'}
         </Button>
-        <Box>Home</Box>
-        {/* <Link to={{
+        {/* <Box>Home</Box> */}
+        <Link to={{
           pathname:'/home',
           state:{
               user:userData
@@ -71,7 +71,7 @@ React.useEffect(()=>{
             <Avatar className='avatar' src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" />
           <Box className='name'> {name}</Box>
           </Link>
-        </Box> */}
+        </Box>
       </Box>
     ) :  
     <Box
