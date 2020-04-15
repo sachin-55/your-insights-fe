@@ -5,6 +5,8 @@ import theme from '../theme/theme';
 import { ThemeProvider } from 'theme-ui';
 import { BrowserRouter as Router,Switch,Route } from 'react-router-dom';
 import LandingPage from "./pages/Landingpage";
+import Titlebar from './components/titlebar';
+
 
 const Root = () => {
     const [loggedInStatus,setLoggedInStatus] = React.useState(true);
