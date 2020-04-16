@@ -3,7 +3,7 @@ import { Box, Text, Avatar,useColorMode } from "theme-ui";
 import { Link,useLocation } from "react-router-dom";
 import Button from './../button';
 import './titlebar.scss'
-const Titlebar = ({ loggedIn,userData }) => { 
+const Titlebar = ({ loggedIn,userData,scrollToRef }) => { 
   const [mode,setMode] = useColorMode();
   const location = useLocation();
   const [name,setName] = React.useState(''); 
@@ -30,8 +30,9 @@ React.useEffect(()=>{
   
   return(
   <Box sx={{ display: "flex", flexDirection: "row", position: "relative" }}>
-    
-    <Box sx={{ width: "100vw" }}>
+    <Box sx={{width:'100vw'}}>
+    <Link to='/' style={{textDecoration:'none'}}>
+    <Box sx={{ width: "100%" }}>
       <Box
         sx={{
           backgroundColor: "primary",
@@ -43,8 +44,10 @@ React.useEffect(()=>{
         }}
       >
         <Text sx={{ fontSize: 2 }}>Your's</Text>
-        <Text sx={{ fontSize: 5 }}>Insights</Text>
+        <Text sx={{ fontSize: 5 }}>Insights</Text>  
       </Box>
+    </Box>
+    </Link>
     </Box>
     {loggedIn === true || localStorage.getItem('jwtToken') !== 'loggedout' ?  (
       <Box
@@ -56,7 +59,7 @@ React.useEffect(()=>{
           display: "flex",
           flexDirection: "row",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "space-around",
           zIndex: "10",
           fontSize: 3
         }}
@@ -66,14 +69,26 @@ React.useEffect(()=>{
         </Button>
         {/* <Box>{loggedIn}</Box> */}
         <Link to={{
+          pathname:'/',
+          state:{
+              user:userData
+          }
+        }} style={{ textDecoration: "none" ,marginRight:'8px'}}>
+          <Box className='link'>
+          All Blogs
+          </Box>
+        </Link>
+        <Link to={{
           pathname:'/home',
           state:{
               user:userData
           }
-        }} style={{ textDecoration: "none", color: "#dfe3e8" }}>
+        }} style={{ textDecoration: "none"}}>
+         <Box className='link'>
           Home
+         </Box>
         </Link>
-        <Box mx="3"  >
+        <Box mx="3"  className='avatar-container'>
           <Link to="/profile/5" className='avatar-name'>
             <Avatar className='avatar' src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" />
           <Box className='name'> {name}</Box>
@@ -98,6 +113,8 @@ React.useEffect(()=>{
     <Button style={{ borderRadius : '0',outline:'none' ,cursor:'pointer', color: "#dfe3e8" }} onClick={toggleTheme}>
     {mode === 'dark'? '💡': '⚫️'}
     </Button>
+    <Button sx={{outline:'none','&:hover':{color:'secondary'}}} onClick={scrollToRef}>Login/SignUp</Button>
+
   </Box>}
 
   </Box>

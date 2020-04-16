@@ -10,16 +10,12 @@ const Landingpage = (props) => {
   const tabColor1 = active === "old" ? "accent" : "transparent";
   const tabColor2 = active === "new" ? "accent" : "transparent";
 
-React.useEffect(()=>{
-props.onLogout()
-},[])
 
   return (
     <>
-
       <Banner />
-
-      <Box>
+      {localStorage.getItem('jwtToken')==='loggedout' || !localStorage.hasOwnProperty("jwtToken") ?
+      <Box ref={props.loginRef}>
         <Box
           sx={{
             display: "flex",
@@ -69,6 +65,7 @@ props.onLogout()
            }
         </Box>
       </Box>
+:null}
     </>
   );
 };

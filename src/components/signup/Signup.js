@@ -39,10 +39,16 @@ setLoading(true)
       });
       if (response.data.status === "success") {
         localStorage.setItem("jwtToken", response.data.token);
-        setUser(response.data.data.user)
-        loggedIn()
-        setLoading(false)
-        history.push("/home");
+        loggedIn();
+        setLoading(false);
+        localStorage.setItem('user',JSON.stringify(response.data.data.user));
+
+        history.push({
+          pathname:'/home',
+          state:{
+            user:response.data.data.user  
+          }
+        });
       }
     } catch (err) {
       setLoading(false)

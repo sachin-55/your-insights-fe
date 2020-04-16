@@ -1,3 +1,8 @@
+.avatar-container:hover{
+    background-color: rgb(230, 74, 100);
+    border-radius: 30px;
+}
+
 .avatar-name{
     text-decoration: none;
     color:whitesmoke;
@@ -15,10 +20,31 @@
     border:1px solid rgb(161, 17, 17);
     margin-top: 20px;
 }
-
+.avatar-name .avatar:hover{
+    animation-name: hoverAvatar;
+animation-duration: 0.5s;
+animation-timing-function: ease-in-out;
+// animation:name duration function delay count fill-mode
+}
 .avatar-name .name{
  margin-top: 5px;   
+ padding-left: 5px;
 }
 .avatar-name .name:hover{
     color:rgba(19, 2, 2, 0.776);
+
+}
+.link{
+    color: whitesmoke;
+}
+
+    .link:hover{
+    color:rgba(19, 2, 2, 0.776);
+}
+
+@keyframes hoverAvatar{
+    0%   {border:5px solid  red;}
+    25%  {border:5px solid  yellow;}
+    50%  {border:5px solid  blue;}
+    100% {border:5px solid  green;}
 }

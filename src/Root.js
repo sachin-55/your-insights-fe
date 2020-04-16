@@ -15,6 +15,12 @@ const Root = () =>{
 const [loggedInStatus,setLoggedInStatus] = React.useState(false);
 const [user,setUser]=React.useState('');
 
+const loginRef = React.useRef(null);
+
+const scrollToRef=()=>{
+  window.scrollTo({behavior:'smooth',top: loginRef.current.offsetTop})
+}
+
 const setUserData=(data)=>{
   setUser(data)
 }
@@ -22,11 +28,11 @@ const setUserData=(data)=>{
  return(
   <ThemeProvider theme={theme}>
     <Router>
-      <Titlebar loggedIn={loggedInStatus} userData={user}/>
+      <Titlebar loggedIn={loggedInStatus} userData={user} scrollToRef={scrollToRef}/>
 
       <Switch>
         <Route exact path="/">
-          <LandingPage    onLogin={()=>setLoggedInStatus(true)} onLogout={()=>setLoggedInStatus(false)}/>
+          <LandingPage    onLogin={()=>setLoggedInStatus(true)} loginRef={loginRef} />
         </Route>
         <Route exact path="/home">
           <HomePage fillData={(data)=>setUserData(data)} />
