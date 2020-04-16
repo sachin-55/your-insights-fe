@@ -50,7 +50,7 @@ try{
   .then((response)=>{
     if(response.data){
       setLoading(false)
-      history.push('/home');
+      window.location.reload(true);
     }
     
 })
@@ -81,7 +81,9 @@ const handleEdit=async (e)=>{
   .then((response)=>{
     if(response.data){
       setLoading(false)
-      history.push('/home');
+      // history.push('/home');
+      window.location.reload(true);
+
 
     }
     
