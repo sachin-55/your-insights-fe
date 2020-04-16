@@ -14,8 +14,8 @@ React.useEffect(()=>{
   }else{
     if(localStorage.getItem('user')){
       const user=JSON.parse(localStorage.getItem('user'));
-      console.log({user});
-
+      setName(user.fullname.split(' ')[0]);
+      
     }
   }
 },[userData])
@@ -45,7 +45,7 @@ React.useEffect(()=>{
         <Text sx={{ fontSize: 5 }}>Insights</Text>
       </Box>
     </Box>
-    {loggedIn === true ? (
+    {loggedIn === true || localStorage.getItem('token') !== 'looggeeout' ?  (
       <Box
         sx={{
           backgroundColor: "transparent",
