@@ -5,7 +5,7 @@ import Button from '../button';
 import axios from'axios';
 import {useHistory} from 'react-router-dom';
 
-const Profile = ({loggedIN}) => {
+const Profile = ({onLogout}) => {
     let [fields,setFields]=React.useState('Upload Profile Image');
     const history=useHistory();
 const handleLogout=async ()=>{
@@ -22,6 +22,7 @@ try{
   .then((response)=>{
     if(response.data){
       localStorage.setItem("jwtToken", response.data.token);
+      onLogout();
       history.push('/');
     }
     

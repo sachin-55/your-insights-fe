@@ -32,7 +32,7 @@ const setUserData=(data)=>{
           <HomePage fillData={(data)=>setUserData(data)} />
         </Route>
         <Route exact path="/profile/:userId">
-          <Profile />
+          <Profile onLogout={()=>setLoggedInStatus(false)}/>
         </Route>
         <Route exact path="/blog/:blogId">
           <Blog />
