@@ -35,7 +35,7 @@ const setUserData=(data)=>{
           <LandingPage    onLogin={()=>setLoggedInStatus(true)} loginRef={loginRef} />
         </Route>
         <Route exact path="/home">
-          <HomePage fillData={(data)=>setUserData(data)} />
+          <HomePage fillData={setUserData} />
         </Route>
         <Route exact path="/profile/:userId">
           <Profile onLogout={()=>setLoggedInStatus(false)}/>
