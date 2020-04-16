@@ -45,7 +45,7 @@ React.useEffect(()=>{
         <Text sx={{ fontSize: 5 }}>Insights</Text>
       </Box>
     </Box>
-    {loggedIn === true || localStorage.getItem('token') !== 'looggeeout' ?  (
+    {loggedIn === true || localStorage.getItem('jwtToken') !== 'looggeeout' ?  (
       <Box
         sx={{
           backgroundColor: "transparent",
