@@ -11,7 +11,7 @@ const Titlebar = ({ loggedIn,userData }) => {
 React.useEffect(()=>{
   if(userData){
     setName(userData.fullname.split(' ')[0]);
-  }  
+  }
 },[userData])
 
   const toggleTheme=(e)=>{

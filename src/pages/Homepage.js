@@ -13,8 +13,6 @@ const Homepage = ({fillData}) => {
     if(location.state.user){
 
       fillData(location.state.user)
-    }else{
-      const user = localStorage.getItem('user');
     }
   },[])
 
