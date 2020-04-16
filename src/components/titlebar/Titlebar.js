@@ -49,7 +49,7 @@ React.useEffect(()=>{
     </Box>
     </Link>
     </Box>
-    {loggedIn === true || localStorage.getItem('jwtToken') !== 'loggedout' ?  (
+    {loggedIn === true || (localStorage.getItem('jwtToken') !== 'loggedout' && localStorage.hasOwnProperty("jwtToken")) ?  (
       <Box
         sx={{
           backgroundColor: "transparent",
