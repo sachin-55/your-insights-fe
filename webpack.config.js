@@ -3,7 +3,7 @@ const path = require('path')
 const Fiber = require('fibers');
 const webpack = require("webpack");
 const dotenv = require("dotenv");
-
+const CopyPlugin =require("copy-webpack-plugin");
 
 const env = dotenv.config({ path: `${__dirname}/config.env` }).parsed;
 
@@ -77,6 +77,9 @@ module.exports = {
             template: "./index.html",
             filename: "./index.html"
         }),
+        new CopyPlugin([
+            { from: '_redirects' }
+          ]),
         new webpack.DefinePlugin(envKeys)
     ],
     devServer: {
