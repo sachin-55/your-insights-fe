@@ -4,7 +4,7 @@ import Card from '../card';
 import axios from 'axios';
 
 
-const PostScroll = ({userData}) => {
+const PostScroll = () => {
 const [data,setData] = React.useState('');
 const [loading,setloading]=React.useState(true);
 

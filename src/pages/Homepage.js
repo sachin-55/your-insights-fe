@@ -38,7 +38,7 @@ const Homepage = ({fillData}) => {
       >
         Create New Post
       </Button>
-      <PostScroll userData={location.state.user}/>
+      <PostScroll />
      
 
      
