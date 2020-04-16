@@ -63,7 +63,7 @@ React.useEffect(()=>{
         <Button style={{ outline:'none' ,cursor:'pointer', color: "#dfe3e8" }} onClick={toggleTheme}>
         {mode === 'dark'? '💡': '⚫️'}
         </Button>
-        {/* <Box>Home</Box> */}
+        <Box>{loggedIn}</Box>
         <Link to={{
           pathname:'/home',
           state:{
