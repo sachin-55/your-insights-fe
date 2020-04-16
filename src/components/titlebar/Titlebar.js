@@ -24,6 +24,7 @@ React.useEffect(()=>{
     e.preventDefault();
     const theme = mode==='dark'?'light':'dark';
     setMode(theme)
+    console.log(loggedIn);
     
   }
   
@@ -63,7 +64,7 @@ React.useEffect(()=>{
         <Button style={{ outline:'none' ,cursor:'pointer', color: "#dfe3e8" }} onClick={toggleTheme}>
         {mode === 'dark'? '💡': '⚫️'}
         </Button>
-        <Box>{loggedIn}</Box>
+        {/* <Box>{loggedIn}</Box> */}
         <Link to={{
           pathname:'/home',
           state:{

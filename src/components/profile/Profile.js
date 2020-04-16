@@ -22,6 +22,8 @@ try{
   .then((response)=>{
     if(response.data){
       localStorage.setItem("jwtToken", response.data.token);
+      localStorage.setItem("user", '');
+
       onLogout();
       history.push('/');
     }
