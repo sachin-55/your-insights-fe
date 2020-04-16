@@ -9,12 +9,7 @@ const Homepage = ({fillData}) => {
   const [newPost, setNewPost] = React.useState(false);
   const location = useLocation();
 
-  React.useEffect(()=>{
-    if(location.state.user){
-      fillData(location.state.user)
 
-    }
-  },[])
 
   return (
     <>
@@ -39,9 +34,7 @@ const Homepage = ({fillData}) => {
         Create New Post
       </Button>
       <PostScroll />
-     
-
-     
+    
     </>
   );
 };
