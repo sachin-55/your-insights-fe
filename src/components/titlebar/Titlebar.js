@@ -12,9 +12,11 @@ React.useEffect(()=>{
   if(userData){
     setName(userData.fullname.split(' ')[0]);
   }else{
-    const user=JSON.parse(localStorage.getItem('user'));
-    console.log({user});
-    
+    if(localStorage.getItem('user')){
+      const user=JSON.parse(localStorage.getItem('user'));
+      console.log({user});
+
+    }
   }
 },[userData])
 
