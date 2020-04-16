@@ -12,9 +12,12 @@ const Blog = ({loggedIn}) => {
     const {blogId} = useParams();
     const con ="  ";
     let createdDate ;
+    let fullname;
     if(data){
-        const options = {year: 'numeric', month: 'long', day: 'numeric' };
-         createdDate =Date(data.createdAt).toLocaleString('en-us',options);
+        const options = {year: 'numeric', month: 'long', day: 'numeric',timeZone:'Asia/Kathmandu' };
+         createdDate =data.createdAt.toLocaleString('en-us',options).replace('T','  Time:').replace('Z',"");
+         console.log(data.user.fullname);
+         
     }
 
 React.useEffect(()=>{
@@ -40,7 +43,7 @@ React.useEffect(()=>{
 
     return (
         <>
-            {/* <Titlebar loggedIn/> */}
+        {data?
             <Box sx={{width:'75%', backgroundColor:'gray',margin:'0 auto'}}>
                 <Box 
                 className="blog-title"
@@ -48,7 +51,10 @@ React.useEffect(()=>{
                 color:'rgb(100, 100, 100)',textShadow:'2px 2px 10px black'}}>
 									{data.title}
                 </Box>
-                <Box sx={{backgroundColor:'accent',color:'white',textAlign:'right',marginTop:2,paddingRight:'2'}}>{createdDate}</Box>
+                <Box sx={{backgroundColor:'accent',color:'white',display:'flex',flexDirection:'row',justifyContent:'space-between',marginTop:2,paddingRight:'2'}}>
+                        <Box sx={{textTransform:'capitalize',paddingLeft:'5'}}>By:{data.user.fullname}</Box>
+                        <Box>Date: {createdDate.split('GMT')[0]}</Box>
+                   </Box>
 
                 <Box sx={{width:'80%',margin:'0 auto',paddingTop:'4',paddingBottom:'4'}}>
                         {/* <Box dangerouslySetInnerHTML={{__html:data.content}}/> */}
@@ -60,6 +66,7 @@ React.useEffect(()=>{
 
                 </Box>
             </Box>
+            :null}
         </>
     );
 }

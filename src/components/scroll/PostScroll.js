@@ -31,14 +31,14 @@ React.useEffect(()=>{
 },[]);
 
 const createBlogCards = ()=>{
-let cards;
-  if(data.length>0){
-   cards =data.map(el=><Card key={el._id} id={el._id} title={el.title} content={el.content} createdAt={el.createdAt}/>) 
+  let cards;
+    if(data.length>0){
+    cards =data.map(el=><Card key={el._id} id={el._id} title={el.title} content={el.content} createdAt={el.createdAt} userData={el.user} viewOnly={false}/>) 
 
-}else{
-  cards='No Blogs Found. Create a New Blog'
-}
-  return cards;
+  }else{
+    cards='No Blogs Found. Create a New Blog'
+  }
+    return cards;
 }
 
 
