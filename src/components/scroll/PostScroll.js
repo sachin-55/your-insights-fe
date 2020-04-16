@@ -45,8 +45,8 @@ let cards;
   return(
   <React.Fragment>
     <Container sx={{ width: "75vw",minHeight:'70vh', backgroundColor: "gray",display:'flex',justifyContent:'space-around',flexWrap:'wrap',paddingTop:5,paddingBottom:5 }}>
-      {createBlogCards()}
-      {loading === true ?<h1>Loading ...</h1>:null}
+      
+      {loading === true ?<h1>Loading ...</h1>:createBlogCards()}
     </Container>
    
   </React.Fragment>
