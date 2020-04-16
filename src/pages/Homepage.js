@@ -10,10 +10,7 @@ const Homepage = ({fillData}) => {
   const location = useLocation();
 
   React.useEffect(()=>{
-    if(location.state.user){
-
-      fillData(location.state.user)
-    }
+    fillData(location.state.user)
   },[])
 
   return (

@@ -47,8 +47,6 @@ let cards;
     <Container sx={{ width: "75vw",minHeight:'70vh', backgroundColor: "gray",display:'flex',justifyContent:'space-around',flexWrap:'wrap',paddingTop:5,paddingBottom:5 }}>
       {createBlogCards()}
       {loading === true ?<h1>Loading ...</h1>:null}
-      {/* <Card title='Title' content='<h1>lol jkjkjk</h1><br><h3>This is not correct</h3>' createdAt={Date.now()}/> */}
-      {/* <Card title='Title' content='<h1>lol jkjkjk</h1><br><h3>This is not correct</h3>' createdAt={Date.now()}/> */}
     </Container>
    
   </React.Fragment>

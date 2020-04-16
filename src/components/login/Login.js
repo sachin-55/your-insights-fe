@@ -50,7 +50,7 @@ const Login = ({loggedIn}) => {
 
         loggedIn();
         setLoading(false)
-        localStorage.setItem('user':response.data.data.user)
+        localStorage.setItem('user':response.data.data.user);
 
         history.push({
           pathname:'/home',
