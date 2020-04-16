@@ -28,7 +28,7 @@ const Login = ({loggedIn}) => {
   const handleLogin = async e => {
     e.preventDefault();
     const url = process.env.API_URL;
-    setLoading(true)
+    setLoading(true);
     loggedIn();
     
 
@@ -49,7 +49,7 @@ const Login = ({loggedIn}) => {
         localStorage.setItem("jwtToken", response.data.token);
 
         loggedIn();
-        setLoading(false)
+        setLoading(false);
         localStorage.setItem('user':response.data.data.user);
 
         history.push({
