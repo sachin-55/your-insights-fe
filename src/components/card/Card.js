@@ -49,7 +49,7 @@ setLoading(true)
         .then((response)=>{
             if(response.data){
                 setLoading(false)
-            history.push('/home'); 
+            window.location.reload(true); 
             }
     
 })
