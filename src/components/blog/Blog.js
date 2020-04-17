@@ -14,7 +14,7 @@ const Blog = ({loggedIn}) => {
     let createdDate ;
     let fullname;
     if(data){
-        const options = {year: 'numeric', month: 'long', day: 'numeric',timeZone:'Asia/Kathmandu' };
+        const options = {year: 'numeric', month: 'long', day: 'numeric',hour12:false,hour:'2-digit',minute:'2-digit',second:'2-digit',timeZone:'Asia/Kathmandu' };
          createdDate =data.createdAt.toLocaleString('en-us',options).replace('T','  Time:').replace('Z',"");
          console.log(data.user.fullname);
          

@@ -10,9 +10,9 @@ import ReactQuill from 'react-quill';
 import CreatePost from '../createPost';
 
 const Card = ({title,content,createdAt,id,userData,viewOnly}) => {
-    const options = {year: 'numeric', month: 'long', day: 'numeric',timeZone:'Asia/Kathmandu' };
+    const options = {year: 'numeric', month: 'long', day: 'numeric',hour12:false,hour:'2-digit',minute:'2-digit',second:'2-digit',timeZone:'Asia/Kathmandu' };
     
-    const createdDate =createdAt.toLocaleString('en-us',options).replace('T',' | ').replace('Z',"");
+    const createdDate =createdAt.toLocaleString('en-us',options).split('T')[0];
 
     const [confirmDelete , setConfirmDelete] = React.useState(false);
     const [editData,setEditData]= React.useState(false);
