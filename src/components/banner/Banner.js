@@ -5,7 +5,7 @@ import './banner.scss';
 const Banner = () => (
   <Box
     sx={{
-      backgroundColor: "rgba(200,20,20,0.7)",
+      backgroundColor: 'highlight',
       color: "accent",
       // paddingTop: "7",
       // paddingBottom: "7",
@@ -13,7 +13,7 @@ const Banner = () => (
     }}
     className="banner"
   >
-    <Text sx={{ fontSize: 4,color:'wheat' }}>Share Your's </Text>
+    <Text sx={{ fontSize: 4,color:'wheat',marginBottom:4 }}>Share Your's </Text>
     <Box className="banner-wrapper">
       <div>
         <div>Knowledge</div>
