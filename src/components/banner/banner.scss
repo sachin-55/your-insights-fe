@@ -2,10 +2,10 @@
 position:static;
 height: 90vh;
 overflow: hidden;
-// background: url('https://res.cloudinary.com/nihcas/image/upload/v1587039598/v1pb1lydpob4jogod0ys.jpg') no-repeat fixed center ;
+background: url('https://res.cloudinary.com/nihcas/image/upload/v1587222428/zl8q96ehjk2hlpbf9qfc.jpg') no-repeat fixed center ;
 }
 .banner .banner-wrapper{
-    width:80%;
+    width:60%;
     height: 90%;
     margin:0 auto;
     position: relative;
@@ -27,32 +27,43 @@ overflow: hidden;
     justify-content: space-between;
     align-items: center;
     color: black;
-    font-size: 5em;
+    font-size: 2em;
     transform-origin: center;
-    padding: 0 100px;
+    padding: 0 20px;
     box-shadow: 0px 0px 5px inset black;
+
 }
+
 .banner .banner-wrapper> div:nth-child(1) {
-    background:linear-gradient(90deg, transparent,rgba(228, 222, 222, 0.878) ,transparent);
+    background:linear-gradient(90deg, #b8772b77 45%,#b8772b ,#b8772b77 55%);
     transform: rotateY(0deg);
     animation: animation1 10s linear infinite;
 
-    
 }
 .banner .banner-wrapper> div:nth-child(1) div{
-    background:linear-gradient(90deg, red,black ,red );
+    background:linear-gradient(90deg,rgb(255, 153, 0), rgb(207, 61, 61),black ,rgb(207, 61, 61),rgb(255, 153, 0));
+    text-shadow: 3px 3px 5px black;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-align: left;
 }
+
+.side-card{
+    width: 50%;
+    word-wrap: break-word;
+}
+
 .banner .banner-wrapper >div:nth-child(2) {
-    background:linear-gradient(90deg, transparent,rgba(228, 222, 222, 0.878) ,transparent );
+    background:linear-gradient(90deg, #b8772b77 45%,#b8772b,#b8772b77 55%);
+    text-shadow: 3px 3px 5px black;
     transform: rotateY(90deg);
     animation: animation2 10s linear infinite;
 }
 .banner .banner-wrapper> div:nth-child(2) div{
-    background:linear-gradient(90deg, red,black ,red );
+    background:linear-gradient(90deg,rgb(255, 153, 0), rgb(207, 61, 61),black ,rgb(207, 61, 61),rgb(255, 153, 0));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    text-align: left;
 }
 
 .mirror{
