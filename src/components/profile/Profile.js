@@ -4,14 +4,24 @@ import { Box } from 'theme-ui';
 import Button from '../button';
 import axios from'axios';
 import {useHistory} from 'react-router-dom';
+import DialogBox from '../dialogbox';
 
 const Profile = ({onLogout}) => {
     let [fields,setFields]=React.useState('Upload Profile Image');
+    const [confirmLogout , setConfirmLogout] = React.useState(false);
+    const [loading,setLoading] = React.useState(false)
+
     const history=useHistory();
-const handleLogout=async ()=>{
+
+    const handleLogout = (e)=>{
+        e.preventDefault();
+        setConfirmLogout(true);
+    }
+
+const logout=async ()=>{
     const url = process.env.API_URL;
   const token = localStorage.getItem('jwtToken');
-    
+    setLoading(true)
   const config = {
     headers: { 
       'authorization': `Bearer ${token}`
@@ -25,6 +35,7 @@ try{
       localStorage.setItem("user", '');
 
       onLogout();
+      setLoading(false);
       history.push('/');
     }
     
@@ -70,7 +81,11 @@ try{
                 </Box>
                 <Box sx={{backgroundColor:'secondary',paddingLeft:'4',flex:3}}>
                     {fields}
+
+
+
                 </Box>
+    {confirmLogout === true?<DialogBox width='75%' loading={loading} closeDialog={()=>setConfirmLogout(false)} title={'Logout'} message={'Are you sure you want to logout?'} action={logout  }/>:null}
             </Box>
         </>
     );

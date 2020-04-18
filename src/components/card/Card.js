@@ -3,7 +3,7 @@ import {Box} from 'theme-ui';
 import './card.scss';
 import {FaEye,FaPen,FaTrash} from 'react-icons/fa'
 import Button from '../button';
-import DialogBox from '../dialogbox';
+import DialogBox from '../dialogbox'; 
 import axios from 'axios';
 import {useHistory,Redirect} from 'react-router-dom';
 import ReactQuill from 'react-quill';

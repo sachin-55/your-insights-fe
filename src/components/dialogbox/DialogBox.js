@@ -3,12 +3,12 @@ import {Box,Container} from 'theme-ui';
 import BackDimLight from '../dimbackground';
 import Button from '../button';
 
-const DialogBox = ({closeDialog,title,message,action,loading}) => {
+const DialogBox = ({closeDialog,title,message,action,loading,width='100%'}) => {
     return (
        <>
         <Container
         sx={{
-            width: "100%",
+            width: `${width}`,
             backgroundColor: "gray",
             position: "absolute",
             top: 6,
