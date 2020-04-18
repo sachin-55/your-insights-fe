@@ -19,7 +19,8 @@ export default {
     colors: {
       text: "#090d1f",
       altText:'#c2c2c2',
-      background: "#fcfcfc",
+      // background: "#fcfcfc",
+      background:'rgb(219, 189, 144)',
       primary: "#ED6A5A",
       secondary: "#8B2635",
       muted: "#e6e6e6",
