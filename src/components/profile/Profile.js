@@ -3,13 +3,37 @@ import Titlebar from '../titlebar';
 import { Box } from 'theme-ui';
 import Button from '../button';
 import axios from'axios';
-import {useHistory} from 'react-router-dom';
+import {useHistory,useParams} from 'react-router-dom';
 import DialogBox from '../dialogbox';
+import UpdateNameAndEmail from './_updateNameAndEmail';
+import UpdatePassword from './_updatePassword';
+import UploadProfilePicture from './_uploadProfilePicture';
 
 const Profile = ({onLogout}) => {
-    let [fields,setFields]=React.useState('Upload Profile Image');
     const [confirmLogout , setConfirmLogout] = React.useState(false);
     const [loading,setLoading] = React.useState(false)
+    const [data,setData] = React.useState('');
+    const {userId} = useParams();
+
+
+    React.useEffect(()=>{
+        const url = process.env.API_URL;
+        const token = localStorage.getItem('jwtToken');
+        const config = {
+          headers: { 
+            'authorization': `Bearer ${token}`
+           }
+        }
+       
+     axios.get(`${url}/api/users/${userId}`, config)
+        .then((response)=>{
+          if(response.data){
+            setData(response.data.data.user);
+        }
+        
+      })
+    },[]);
+
 
     const history=useHistory();
 
@@ -49,23 +73,8 @@ try{
     return (
         <>
             <Box sx={{width:'75%',minHeight:'90vh',margin:'0 auto',backgroundColor:'gray',display:'flex',flexDirection:'row'}}>
-                <Box sx={{backgroundColor:'primary',paddingLeft:'4',flex:1,display:'flex',flexDirection:'column',alignItems:'flex-start'}}>
-                    <Button 
-                        onClick={()=>setFields('Upload Profile Image')}
-                        sx={{outline:'none',cursor:'pointer',marginTop:'4','&:hover':{textDecoration:'underline' }}}>
-                        Upload Profile Image
-                        </Button>
-                    <Button 
-                        onClick={()=>setFields('Change Name or Email')}
-                        sx={{outline:'none',cursor:'pointer','&:hover':{textDecoration:'underline' }}}>
-                        Change Name/Email
-                        </Button>
-                    <Button 
-                        onClick={()=>setFields('Change Password')}
-                        sx={{outline:'none',cursor:'pointer','&:hover':{textDecoration:'underline' }}}>
-                        Change Password
-                        </Button>
-
+                <Box sx={{backgroundColor:'primary',paddingLeft:'4',flex:'1',display:'flex',flexDirection:'column',alignItems:'flex-start',flexBasis:'100px'}}>
+                  
 
                     <Button 
                         onClick={()=>setFields('View and Update your Profile')}
@@ -79,13 +88,17 @@ try{
                         </Button>
 
                 </Box>
-                <Box sx={{backgroundColor:'secondary',paddingLeft:'4',flex:3}}>
-                    {fields}
+                <Box sx={{backgroundColor:'secondary',paddingLeft:'4',flex:'3',width:'100%'}}>
+                <Box sx={{width:'100%',position:'relative'}}>
+                    {confirmLogout === true?<DialogBox width='75%' loading={loading} closeDialog={()=>setConfirmLogout(false)} title={'Logout'} message={'Are you sure you want to logout?'} action={logout  }/>:null}
+                </Box>
 
+                    <UploadProfilePicture/>
 
+                   {data? <UpdateNameAndEmail data={data}/>:null}
+                    <UpdatePassword />
 
                 </Box>
-    {confirmLogout === true?<DialogBox width='75%' loading={loading} closeDialog={()=>setConfirmLogout(false)} title={'Logout'} message={'Are you sure you want to logout?'} action={logout  }/>:null}
             </Box>
         </>
     );

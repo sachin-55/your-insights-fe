@@ -7,6 +7,8 @@ const Titlebar = ({ loggedIn,userData,scrollToRef }) => {
   const [mode,setMode] = useColorMode();
   const location = useLocation();
   const [name,setName] = React.useState(''); 
+  const [id,setId] = React.useState(''); 
+
 
 React.useEffect(()=>{
   if(userData){
@@ -15,7 +17,7 @@ React.useEffect(()=>{
     if(localStorage.getItem('user')){
       const user=JSON.parse(localStorage.getItem('user'));
       setName(user.fullname.split(' ')[0]);
-      
+      setId(user._id);
     }
   }
 },[userData])
@@ -89,7 +91,7 @@ React.useEffect(()=>{
          </Box>
         </Link>
         <Box mx="3"  className='avatar-container'>
-          <Link to="/profile/5" className='avatar-name'>
+          <Link to={`/profile/${id}`} className='avatar-name'>
             <Avatar className='avatar' src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" />
           <Box className='name'> {name}</Box>
           </Link>
