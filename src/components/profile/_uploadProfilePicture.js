@@ -55,10 +55,10 @@ const _uploadProfilePicture = ({data}) => {
       }
 
 
-    return (
+      return (
         <>
-         <Box mx="3" >
-            <Avatar className='avatar' src={afterUpload ?  afterUpload:data.photo} />
+         <Box sx={{display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
+            <Avatar   className='avatar'  src={afterUpload ?  afterUpload:data.photo}  sx={{marginLeft:'-12rem'}}/> 
         </Box>
         <Box
         as="form"
@@ -80,6 +80,7 @@ const _uploadProfilePicture = ({data}) => {
           Update
         </Button>
         </Box>
+
         </>
     );
 }

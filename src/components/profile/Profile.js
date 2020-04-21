@@ -89,7 +89,7 @@ try{
                         </Button>
 
                 </Box>
-                <Box sx={{backgroundColor:'transparent',paddingLeft:'4',flex:'3',width:'100%'}}>
+                <Box sx={{backgroundColor:'transparent',paddingLeft:'4',flex:'3',width:'100%',marginBottom:3}}>
                 <Box sx={{width:'100%',position:'relative'}}>
                     {confirmLogout === true?<DialogBox width='75%' loading={loading} closeDialog={()=>setConfirmLogout(false)} title={'Logout'} message={'Are you sure you want to logout?'} action={logout  }/>:null}
                 </Box>
