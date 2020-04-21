@@ -73,6 +73,7 @@ try{
     return (
         <>
             <Box sx={{width:'75%',minHeight:'90vh',margin:'0 auto',backgroundColor:'gray',display:'flex',flexDirection:'row'}}>
+              
                 <Box sx={{backgroundColor:'primary',paddingLeft:'4',flex:'1',display:'flex',flexDirection:'column',alignItems:'flex-start',flexBasis:'100px'}}>
                   
 
@@ -88,14 +89,19 @@ try{
                         </Button>
 
                 </Box>
-                <Box sx={{backgroundColor:'secondary',paddingLeft:'4',flex:'3',width:'100%'}}>
+                <Box sx={{backgroundColor:'transparent',paddingLeft:'4',flex:'3',width:'100%'}}>
                 <Box sx={{width:'100%',position:'relative'}}>
                     {confirmLogout === true?<DialogBox width='75%' loading={loading} closeDialog={()=>setConfirmLogout(false)} title={'Logout'} message={'Are you sure you want to logout?'} action={logout  }/>:null}
                 </Box>
 
-                    <UploadProfilePicture/>
+                    
 
-                   {data? <UpdateNameAndEmail data={data}/>:null}
+                   {data?
+                   <>
+                    <UploadProfilePicture data={data}/>
+                    <UpdateNameAndEmail data={data}/>
+                   </> 
+                   :<h1>Please Wait ...</h1>}
                     <UpdatePassword />
 
                 </Box>

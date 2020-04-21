@@ -1,12 +1,13 @@
 body::-webkit-scrollbar{
-    width: 0.25rem;
-}
-body::-webkit-scrollbar:hover{
     width: 0.6rem;
+position: relative;
 }
+
 body::-webkit-scrollbar-track{
     background-color: #b8772b;
 }
 body::-webkit-scrollbar-thumb{
-    background-color: #ED6A5Acc;
+    background-color: #ED6A5Aee;
+    box-shadow: 0px 0px 4px black inset;
+    position: absolute;
 }

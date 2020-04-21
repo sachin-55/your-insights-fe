@@ -7,16 +7,20 @@ const Titlebar = ({ loggedIn,userData,scrollToRef }) => {
   const [mode,setMode] = useColorMode();
   const location = useLocation();
   const [name,setName] = React.useState(''); 
+  const [photo,setPhoto] = React.useState('');
   const [id,setId] = React.useState(''); 
 
 
 React.useEffect(()=>{
   if(userData){
     setName(userData.fullname.split(' ')[0]);
+    setPhoto(userData.photo);
   }else{
     if(localStorage.getItem('user')){
       const user=JSON.parse(localStorage.getItem('user'));
       setName(user.fullname.split(' ')[0]);
+      setPhoto(user.photo);
+      
       setId(user._id);
     }
   }
@@ -92,7 +96,7 @@ React.useEffect(()=>{
         </Link>
         <Box mx="3"  className='avatar-container'>
           <Link to={`/profile/${id}`} className='avatar-name'>
-            <Avatar className='avatar' src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" />
+            <Avatar className='avatar' src={photo?photo: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"} />
           <Box className='name'> {name}</Box>
           </Link>
         </Box>

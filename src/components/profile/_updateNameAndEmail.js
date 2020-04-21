@@ -1,9 +1,8 @@
 import React from 'react';
 import { Box, Label, Input } from "theme-ui";
-import { useHistory } from "react-router-dom";
 import axios from "axios";
 import Button from "../button";
-
+ 
 // const initialState = {
 //     email: "",
 //     fullname: ""
@@ -16,7 +15,6 @@ import Button from "../button";
 
 const _updateNameAndEmail = ({data}) => {
     const [state, dispatch] = React.useReducer(reducer, {email:data.email,fullname:data.fullname});
-    const history = useHistory();
     const [loading,setLoading] = React.useState(false);
 
 // React.useEffect(()=>{
@@ -56,7 +54,6 @@ const _updateNameAndEmail = ({data}) => {
         .then((response)=>{
           if(response.data){
             setLoading(false)
-            // history.push('/home');
             localStorage.setItem('user',JSON.stringify(response.data.data.user));
             window.location.reload(true);  
           }
