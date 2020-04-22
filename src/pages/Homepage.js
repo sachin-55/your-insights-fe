@@ -5,7 +5,7 @@ import PostScroll from "../components/scroll";
 import CreatePost from "../components/createPost";
 import {useLocation} from 'react-router-dom';
 
-const Homepage = ({fillData}) => {
+const Homepage = () => {
   const [newPost, setNewPost] = React.useState(false);
   const location = useLocation();
 

@@ -1,6 +1,5 @@
 .avatar-container:hover{
-    background-color: rgb(230, 74, 100);
-    border-radius: 30px;
+    background-color: rgba(238, 226, 136, 0.497);
 }
 
 .avatar-name{
@@ -13,7 +12,7 @@
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-
+    
 }
 
 .avatar-name .avatar{
@@ -22,8 +21,8 @@
 }
 .avatar-name .avatar:hover{
     animation-name: hoverAvatar;
-animation-duration: 0.5s;
-animation-timing-function: ease-in-out;
+    animation-duration: 0.5s;
+    animation-timing-function: ease-in-out;
 // animation:name duration function delay count fill-mode
 }
 .avatar-name .name{

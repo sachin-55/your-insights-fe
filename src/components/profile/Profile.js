@@ -3,7 +3,7 @@ import Titlebar from '../titlebar';
 import { Box } from 'theme-ui';
 import Button from '../button';
 import axios from'axios';
-import {useHistory,useParams} from 'react-router-dom';
+import {Redirect,useParams} from 'react-router-dom';
 import DialogBox from '../dialogbox';
 import UpdateNameAndEmail from './_updateNameAndEmail';
 import UpdatePassword from './_updatePassword';
@@ -11,9 +11,11 @@ import UploadProfilePicture from './_uploadProfilePicture';
 
 const Profile = ({onLogout}) => {
     const [confirmLogout , setConfirmLogout] = React.useState(false);
+    const [redirect,setRedirect] = React.useState(false);
     const [loading,setLoading] = React.useState(false)
     const [data,setData] = React.useState('');
     const {userId} = useParams();
+    
 
 
     React.useEffect(()=>{
@@ -29,13 +31,13 @@ const Profile = ({onLogout}) => {
         .then((response)=>{
           if(response.data){
             setData(response.data.data.user);
+            
         }
         
       })
     },[]);
 
 
-    const history=useHistory();
 
     const handleLogout = (e)=>{
         e.preventDefault();
@@ -60,7 +62,7 @@ try{
 
       onLogout();
       setLoading(false);
-      history.push('/');
+      setRedirect(true)
     }
     
 })
@@ -71,8 +73,9 @@ try{
 }
 
     return (
-        <>
-            <Box sx={{width:'75%',minHeight:'90vh',margin:'0 auto',backgroundColor:'gray',display:'flex',flexDirection:'row'}}>
+      <>
+        {redirect ===true ? <Redirect to='/'/>:
+        <Box sx={{width:'75%',minHeight:'90vh',margin:'0 auto',backgroundColor:'gray',display:'flex',flexDirection:'row'}}>
               
                 <Box sx={{backgroundColor:'primary',paddingLeft:'4',flex:'1',display:'flex',flexDirection:'column',alignItems:'flex-start',flexBasis:'100px'}}>
                   
@@ -106,7 +109,8 @@ try{
 
                 </Box>
             </Box>
-        </>
+}
+            </>
     );
 }
 

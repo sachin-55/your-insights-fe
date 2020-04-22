@@ -25,6 +25,9 @@ React.useEffect(()=>{
     if(response.data){
       setloading(false);
       setData(response.data.blogs)
+    }else{
+      console.log(response);
+      
     }
   })
 }

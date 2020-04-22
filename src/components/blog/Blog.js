@@ -1,6 +1,6 @@
 import React from 'react';
 import Titlebar from "../titlebar";
-import { Box } from 'theme-ui';
+import { Box,Avatar } from 'theme-ui';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import ReactQuill from 'react-quill';
@@ -35,6 +35,9 @@ React.useEffect(()=>{
       if(response.data){
         setData(response.data.blog);
 
+    }else{
+        console.log(response);
+        
     }
       
   })
@@ -47,15 +50,28 @@ React.useEffect(()=>{
             <Box sx={{width:'75%', backgroundColor:'gray',margin:'0 auto'}}>
                 <Box 
                 className="blog-title"
-                sx={{borderBottom:'5px solid #ED6A5A',boxShadow:' 0px 0px 10px black',textAlign:'center',textTransform:'uppercase' ,fontWeight:'bold',fontSize:6,
-                color:'rgb(100, 100, 100)',textShadow:'2px 2px 10px black'}}>
+                sx={{borderBottom:'5px solid #ED6A5A',textAlign:'center',textTransform:'uppercase' ,fontWeight:'bold',fontSize:6,
+                color:'rgb(100, 100, 100)' }}>
 									{data.title}
                 </Box>
-                <Box sx={{backgroundColor:'accent',color:'white',display:'flex',flexDirection:'row',justifyContent:'space-between',marginTop:2,paddingRight:'2'}}>
-                        <Box sx={{textTransform:'capitalize',paddingLeft:'5'}}>By:{data.user.fullname}</Box>
-                        <Box>Date: {createdDate.split('GMT')[0]}</Box>
-                   </Box>
+                <Box sx={{backgroundColor:'accent',color:'white',display:'flex',flexDirection:'row',justifyContent:'flex-start',alignItems:'center',marginTop:2,paddingRight:'2'}}>
+                       <Box className="avatar-container-blog">
+                            <Avatar src={data.user.photo} sx={{width:'150px',height:'150px',borderRadius:'20px'}}/>
+                                {/* <svg width="0" height="0">
+                                    <defs>
+                                        <clipPath id="myClip">
+                                        <circle cx="100" cy="100" r="40" />
+                                        <circle cx="60" cy="60" r="40" />
+                                        </clipPath>
+                                    </defs>
+                                </svg> */}
 
+                       </Box>
+                        <Box sx={{display:'flex',flexDirection:'column',justifyContent:'flex-start',alignItems:'flex-start',fontSize:'3',color:'gray'}}>
+                            <Box sx={{textTransform:'capitalize'}}>{data.user.fullname}</Box>
+                            <Box>Date: {createdDate.split('GMT')[0]}</Box>
+                        </Box>
+                   </Box>
                 <Box sx={{width:'80%',margin:'0 auto',paddingTop:'4',paddingBottom:'4'}}>
                         {/* <Box dangerouslySetInnerHTML={{__html:data.content}}/> */}
                         <ReactQuill

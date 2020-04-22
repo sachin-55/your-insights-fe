@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Label, Input,Avatar } from "theme-ui";
+import { Box, Label, Input,Avatar,Text } from "theme-ui";
 import axios from "axios";
 import Button from "../button";
 
@@ -13,6 +13,11 @@ const _uploadProfilePicture = ({data}) => {
     const [afterUpload,setAfterUpload] = React.useState('');
     const [loading,setLoading] = React.useState(false);
 
+React.useEffect(()=>{
+  console.log(`After = ${afterUpload}`);
+  console.log(`Data = ${photo}`);
+  
+},[]);
 
     const handleChange = e => {
         const { target } = e;
@@ -34,8 +39,7 @@ const _uploadProfilePicture = ({data}) => {
            }
         }
 
-      formData.append("photo",photo);
-      
+      formData.append("photo",photo);      
       axios.patch(`${url}/api/users/uploadProfileImage`,formData, config)
       .then((response)=>{
           if(response.data){
@@ -49,20 +53,22 @@ const _uploadProfilePicture = ({data}) => {
     
         }).catch(err=>{
             setLoading(false)
-            alert(err.message)
+            alert("Error Uploading Image. Check if Image is selected")
             
         })
+
       }
 
 
       return (
         <>
-         <Box sx={{display:'flex',flexDirection:'row',justifyContent:'center',alignItems:'center'}}>
-            <Avatar   className='avatar'  src={afterUpload ?  afterUpload:data.photo}  sx={{marginLeft:'-12rem'}}/> 
+         <Box sx={{display:'flex',flexDirection:'column',justifyContent:'center',alignItems:'center'}}>
+            <Avatar   className='avatar'  src={afterUpload ?  afterUpload:data.photo}  sx={{borderRadius:'50%',border:'1px solid gray',width:'200px',height:'200px'}}/> 
+          <Text sx={{fontSize:'1',color:'background'}}>**Select square image if possibe else image is cropped from center</Text>
         </Box>
         <Box
         as="form"
-        onSubmit={handleUpdate}
+        onSubmit={handleUpdate} 
         sx={{ width: "40%", margin: "0 auto" }}>
              <Label htmlFor="email">Upload Profile Picture</Label>
         <Input

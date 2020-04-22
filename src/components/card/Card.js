@@ -1,5 +1,5 @@
 import React from 'react';
-import {Box} from 'theme-ui';
+import {Box, Avatar} from 'theme-ui';
 import './card.scss';
 import {FaEye,FaPen,FaTrash} from 'react-icons/fa'
 import Button from '../button';
@@ -70,13 +70,19 @@ setLoading(true)
             {title}
         </Box>
     <Box sx={{backgroundColor:'accent',color:'white',textAlign:'right',marginTop:2,paddingRight:'2'}}>
-        <Box sx={{textTransform:'capitalize', fontSize:'3'}}>
-        {user.fullname}
+       <Box sx={{display:'flex',justifyContent:'flex-end',alignItems:'center'}}>
+            <Box>
+                <Avatar src={user.photo} />
+            </Box>
+            <Box>
+                <Box sx={{textTransform:'capitalize', fontSize:'3'}}>
+                {user.fullname}
+                </Box>
+                <Box>
+                {createdDate}
+                </Box>
+            </Box>    
         </Box>
-
-        <Box>
-        {createdDate}
-        </Box>    
     </Box>
     <Box className="card-content" >
        
