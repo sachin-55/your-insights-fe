@@ -5,7 +5,7 @@ import './banner.scss';
 const Banner = () => (
   <Box
     sx={{
-      backgroundColor: 'highlight',
+      backgroundColor: 'rgba(255, 153, 0,0.7)',
       color: "accent",
       // paddingTop: "7",
       // paddingBottom: "7",
@@ -15,18 +15,11 @@ const Banner = () => (
   >
     <Text sx={{ fontSize: 5,color:'primary',textShadow:'2px 2px 3px black',marginBottom:4 }}>Share Your's </Text>
     <Box className="banner-wrapper">
-      <div>
-        <div className="side-card ">Knowledge</div>
-        <div className='mirror side-card'>Experience</div>
-
-      </div>
-      <div>
-      <div  className="side-card">Views</div>
-      <div className='mirror side-card'>Ideas</div>
-
-      </div>
+      <div><div>Ideas</div></div>     
+      <div><div>Knowledge</div></div>     
+      <div><div>Views</div></div>     
+      <div><div>Experience</div></div>     
     </Box>
-  
   </Box>
 );
 
