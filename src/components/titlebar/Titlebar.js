@@ -86,7 +86,7 @@ React.useEffect(()=>{
           Home
          </Box>
         </Link>
-        {!localStorage.hasOwnProperty('user') && localStorage.getItem('user') !==''?
+        {localStorage.hasOwnProperty('user') && localStorage.getItem('user') !==''?
         <Box mx="3"  className='avatar-container'>
           <Link to={`/profile/${JSON.parse(localStorage.getItem('user'))._id}`} className='avatar-name'>
             <Avatar className='avatar' src={photo?photo: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"} />
