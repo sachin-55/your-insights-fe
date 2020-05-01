@@ -12,7 +12,7 @@ const Titlebar = ({ loggedIn,scrollToRef }) => {
 
 React.useEffect(()=>{
   
-    if(localStorage.getItem('user') !=='' ){
+    if(localStorage.hasOwnProperty('user')&& localStorage.getItem('user') !=='' ){
       const user=JSON.parse(localStorage.getItem('user'));
       setName(user.fullname.split(' ')[0]);
       setPhoto(user.photo);
@@ -86,7 +86,7 @@ React.useEffect(()=>{
           Home
          </Box>
         </Link>
-        {localStorage.getItem('user') !==''?
+        {!localStorage.hasOwnProperty('user') && localStorage.getItem('user') !==''?
         <Box mx="3"  className='avatar-container'>
           <Link to={`/profile/${JSON.parse(localStorage.getItem('user'))._id}`} className='avatar-name'>
             <Avatar className='avatar' src={photo?photo: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png"} />
