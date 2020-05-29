@@ -9,19 +9,18 @@ background-color: blue;
 } 
 .banner .screen{
     width:80%;
-    height: 65vh;
+    height: 400px;
     margin:0 auto;
     overflow: hidden;
-    // background-color: pink;
-    border-top: 5px ridge rgb(209, 169, 169);
-    border-bottom: 5px ridge #ED6A5A;
+    border: 5px ridge rgb(209, 130, 130);
     box-shadow: inset 0px -2px 100px 1px rgb(56, 20, 20),
                 inset 0px 2px 100px 1px  rgb(250, 196, 196);
     border-radius: 50px;
-    padding: 0 10px
+    position:relative;
+    top:50px;
 }
 .banner .banner-wrapper{
-    width: 80%;
+    width: 100%;
     margin:0 auto;
     position: relative; 
     perspective: 3000px;
@@ -29,17 +28,17 @@ background-color: blue;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    animation: slideUp 20s ease-in-out infinite alternate;
+    animation: slideUp 15s ease-in-out infinite reverse;
 }
 .banner .banner-wrapper > div{
     background-color: red;
-    margin: 50px 0 100px;
+    margin: 0 0 10px;
     border:6px ridge #ED6A5A;
     border-radius: 50px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 100px 0 ;
+    padding: 136px 0 ;
 }
 .banner .banner-wrapper > div div{ 
     background-size: cover;
@@ -87,17 +86,21 @@ background-color: blue;
     0%{
         transform: translateY(0px);
     }
-    33%{
-        transform: translateY(-470px);
+    31%{
+        transform: translateY(-400px);
 
     }
-    66%{
-        transform: translateY(-940px);
+    62%{
+        transform: translateY(-800px);
 
+    }
+    96%{
+        transform: translateY(-1200px);
     }
     100%{
-        transform: translateY(-1420px);
+        transform: translateY(0px);
     }
+
 
 }
 
@@ -109,8 +112,37 @@ background-color: blue;
     }
 }
 @media screen and (max-width:600px){
-    .banner .banner-wrapper>div{
-        font-size: 2em;
-        height: 50%;
+    .banner .banner-wrapper>div div{
+        font-size: 2rem;
     }
+    .banner .screen{
+        height:340px;
+    }
+
+
+@keyframes slideUp{
+    0%{
+        transform: translateY(0px);
+    }
+    31%{
+        transform: translateY(-345px);
+
+    }
+    62%{
+        transform: translateY(-685px);
+
+    }
+    96%{
+        transform: translateY(-1030px);
+    }
+    100%{
+        transform: translateY(0px);
+    }
+
+
+}
+
+
+
+
 }
