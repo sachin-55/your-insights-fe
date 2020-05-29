@@ -6,132 +6,102 @@ background-repeat: no-repeat;
 background-size: cover;
 background-attachment: fixed;
 background-color: blue;
+} 
+.banner .screen{
+    width:80%;
+    height: 65vh;
+    margin:0 auto;
+    overflow: hidden;
+    // background-color: pink;
+    border-top: 5px ridge rgb(209, 169, 169);
+    border-bottom: 5px ridge #ED6A5A;
+    box-shadow: inset 0px -2px 100px 1px rgb(56, 20, 20),
+                inset 0px 2px 100px 1px  rgb(250, 196, 196);
+    border-radius: 50px;
+    padding: 0 10px
 }
 .banner .banner-wrapper{
-    width:60%;
-    height: 80%;
+    width: 80%;
     margin:0 auto;
-    position: relative;
+    position: relative; 
     perspective: 3000px;
     transform-style: preserve-3d;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    transform:scale3d(2);
-    perspective: 2000px;
+    justify-content: flex-start;
+    animation: slideUp 20s ease-in-out infinite alternate;
 }
-
-.banner .banner-wrapper>div{
-    width: 100%;
-    height:100%;
-    position: absolute;
-    transform-style: preserve-3d;
-    perspective: 3000px;
-    transform-origin: 50px -15%;
-    backface-visibility: visible;
-    color:#8B2635;
-    border:10px ridge #ed6a5a;
+.banner .banner-wrapper > div{
+    background-color: red;
+    margin: 50px 0 100px;
+    border:6px ridge #ED6A5A;
     border-radius: 50px;
-    font-size: 6em;
-    font-weight: 900;
-    font-family: 'Courier New', Courier, monospace;
-    line-height: 1.5em;
-    word-wrap: break-word;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    -webkit-text-stroke: thin;
-    -webkit-text-stroke-color: rgba(221, 68, 7, 0.844);;
-}
-.banner .banner-wrapper>div div{
-    display: inline;
     background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
+    padding: 100px 0 ;
+}
+.banner .banner-wrapper > div div{ 
+    background-size: cover;
     background-position: center;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    -webkit-text-stroke: 1px #ED6A5A;
+    font-size: 70px;
+    font-weight: 900;
 }
-.banner .banner-wrapper>div:nth-child(1) div{
-    background-image:url('https://1.bp.blogspot.com/-8fODRrbzMyg/Xm5OhGELYXI/AAAAAAAAB_8/MmPcvTa-F0YZkWylzZFFRyQACH8V9tHZQCLcBGAsYHQ/s1600/Yz%2Bcreation%2B2020%2B%252816%2529.jpg');
+
+.banner .banner-wrapper > div:nth-child(1){
+    background-image:linear-gradient(90deg,rgba(0,0,0,0.6),rgba(0,0,0,0.6)) ,url('https://1.bp.blogspot.com/-8fODRrbzMyg/Xm5OhGELYXI/AAAAAAAAB_8/MmPcvTa-F0YZkWylzZFFRyQACH8V9tHZQCLcBGAsYHQ/s1600/Yz%2Bcreation%2B2020%2B%252816%2529.jpg') ;
+
 }
-.banner .banner-wrapper>div:nth-child(2) div{
+.banner .banner-wrapper > div:nth-child(1) div{
+    background-image:url('https://1.bp.blogspot.com/-8fODRrbzMyg/Xm5OhGELYXI/AAAAAAAAB_8/MmPcvTa-F0YZkWylzZFFRyQACH8V9tHZQCLcBGAsYHQ/s1600/Yz%2Bcreation%2B2020%2B%252816%2529.jpg') ;
+}
+
+.banner .banner-wrapper > div:nth-child(2){
+    background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('https://wallpaperaccess.com/full/503216.jpg') ;
+
+}
+.banner .banner-wrapper > div:nth-child(2) div{
     background-image:url('https://wallpaperaccess.com/full/503216.jpg');
+
 }
-.banner .banner-wrapper>div:nth-child(3) div{
+.banner .banner-wrapper > div:nth-child(3){
+    background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('https://wallpapertag.com/wallpaper/full/c/c/b/143196-nature-background-hd-2304x1440-notebook.jpg') ;
+
+}
+.banner .banner-wrapper > div:nth-child(3) div{
     background-image:url('https://wallpapertag.com/wallpaper/full/c/c/b/143196-nature-background-hd-2304x1440-notebook.jpg');
+
 }
-.banner .banner-wrapper>div:nth-child(4) div{
+.banner .banner-wrapper > div:nth-child(4){
+    background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('https://wallpaperheart.com/wp-content/uploads/2018/03/hd-background-wallpapers-free-amazing-cool-tablet-high-definition.jpg') ;
+
+}
+.banner .banner-wrapper > div:nth-child(4) div{
     background-image:url('https://wallpaperheart.com/wp-content/uploads/2018/03/hd-background-wallpapers-free-amazing-cool-tablet-high-definition.jpg');
 }
-.banner .banner-wrapper>div:nth-child(1){
-    background-color: red;
-    background-image: linear-gradient(135deg,rgba(138, 194, 27, 0.701), rgba(245, 246, 252, 0.52)),url('https://1.bp.blogspot.com/-8fODRrbzMyg/Xm5OhGELYXI/AAAAAAAAB_8/MmPcvTa-F0YZkWylzZFFRyQACH8V9tHZQCLcBGAsYHQ/s1600/Yz%2Bcreation%2B2020%2B%252816%2529.jpg');
-    background-size: cover;
-    animation-name: banner-animation;
-    animation-duration: 7s;
-    animation-delay: 6.5s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: both;
-    animation-timing-function: ease-in-out;
-    // transform-origin: top;
-}
 
-.banner .banner-wrapper>div:nth-child(2){
-    background-color: green;
-    background-image: linear-gradient(135deg,rgba(138, 194, 27, 0.701), rgba(245, 246, 252, 0.52)),url('https://wallpaperaccess.com/full/503216.jpg');
-    background-size: cover;
-    animation-name: banner-animation;
-    animation-duration: 7s;
-    animation-delay: 4.5s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: both;
-    animation-timing-function: ease-in-out;
-    // transform-origin: top;
-}
-.banner .banner-wrapper>div:nth-child(3){
-    background-color: blue;
-    background-image: linear-gradient(135deg,rgba(138, 194, 27, 0.701), rgba(245, 246, 252, 0.52)),url('https://wallpapertag.com/wallpaper/full/c/c/b/143196-nature-background-hd-2304x1440-notebook.jpg');
-    background-size: cover;
-    animation-name: banner-animation;
-    animation-duration: 7s;
-    animation-delay: 2.5s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: both;
-    animation-timing-function: ease-in-out;
-    // transform-origin: top;
-}
-.banner .banner-wrapper>div:nth-child(4){
-    background-color: yellow;
-    background-image: linear-gradient(135deg,rgba(138, 194, 27, 0.701), rgba(245, 246, 252, 0.52)),url('https://wallpaperheart.com/wp-content/uploads/2018/03/hd-background-wallpapers-free-amazing-cool-tablet-high-definition.jpg');
-    background-size: cover;
-    animation-name: banner-animation;
-    animation-duration: 7s;
-    animation-delay: 0.5s;
-    animation-iteration-count: infinite;
-    animation-fill-mode: both;
-    animation-timing-function: ease-in-out;
-    // transform-origin: top;
-}
-
-.banner-bottom{
-    height: 90%;
-}
-
-@keyframes banner-animation{
+@keyframes slideUp{
     0%{
-        transform: rotateX(360deg);
+        transform: translateY(0px);
     }
-    50%{
-        transform: rotateX(180deg);
+    33%{
+        transform: translateY(-470px);
+
+    }
+    66%{
+        transform: translateY(-940px);
 
     }
     100%{
-        transform: rotateX(0deg);
-
+        transform: translateY(-1420px);
     }
 
 }
+
+
 @media screen and (max-width:1000px){
     .banner .banner-wrapper>div{
         font-size: 4em;

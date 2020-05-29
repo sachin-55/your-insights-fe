@@ -13,12 +13,15 @@ const Banner = () => (
     }}
     className="banner"
   >
-    <Text sx={{ fontSize: 5,color:'primary',textShadow:'2px 2px 3px black',marginBottom:4 }}>Share Your's </Text>
-    <Box className="banner-wrapper">
-      <div><div>Ideas</div></div>     
-      <div><div>Knowledge</div></div>     
-      <div><div>Views</div></div>     
-      <div><div>Experience</div></div>     
+    <Text sx={{ fontSize: 5,color:'primary',textShadow:'2px 2px 3px black' }}>Share Your's </Text>
+    <Box className="screen">
+      <div className='banner-wrapper'>
+        <div><div>Ideas</div></div>     
+        <div><div>Knowledge</div></div>     
+        <div><div>Views</div></div>     
+        <div><div>Experience</div></div>   
+      </div>
+       
     </Box>
   </Box>
 );
