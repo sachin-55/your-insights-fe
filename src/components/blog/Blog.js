@@ -51,7 +51,7 @@ React.useEffect(()=>{
             <Box sx={{width:'75%', backgroundColor:'gray',margin:'0 auto'}}>
                 <Box 
                 className="blog-title"
-                sx={{borderBottom:'5px solid #ED6A5A',textAlign:'center',textTransform:'uppercase' ,fontWeight:'bold',fontSize:6,
+                sx={{borderBottom:'5px solid #ED6A5A',textAlign:'center',padding:[3,2],lineHeight:[1] ,fontWeight:'bold',fontSize:[4,6],
                 color:'rgb(100, 100, 100)' }}>
 									{data.title}
                 </Box>
