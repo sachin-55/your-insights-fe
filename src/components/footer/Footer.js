@@ -16,10 +16,10 @@ const Footer = () => (
     }}
   >
     <Box>
-      Created By:
+      All Rights Reserved
     </Box>
     <Box sx={{fontSize:'5'}} className="footer-creator">
-      Sachin Bhattarai
+      Your's Insight | Sachin Bhattarai
     </Box>
     <Box>
       &copy;2020
