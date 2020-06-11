@@ -69,7 +69,7 @@ React.useEffect(()=>{
         <Box
         as="form"
         onSubmit={handleUpdate} 
-        sx={{ width: "40%", margin: "0 auto" }}>
+        sx={{ width: ['100%',"40%"], margin: "0 auto" }}>
              <Label htmlFor="email">Upload Profile Picture</Label>
         <Input
           type="file"

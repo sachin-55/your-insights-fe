@@ -67,7 +67,7 @@ const {userId}=useParams()
         <Box
         as="form"
         onSubmit={handleUpdate}
-        sx={{ width: "40%", margin: "0 auto" }}
+        sx={{ width: ['90%',"40%"], margin: "0 auto" }}
       >
         <Label htmlFor="currentPassword">Current Password</Label>
         <Input

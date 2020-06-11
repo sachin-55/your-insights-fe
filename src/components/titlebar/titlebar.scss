@@ -35,10 +35,16 @@
 }
 .link{
     color: whitesmoke;
+    font-size: 15px;
 }
 
     .link:hover{
     color:rgba(19, 2, 2, 0.776);
+}
+
+.login-link{
+    text-decoration: none;
+    padding: 10px;
 }
 
 @keyframes hoverAvatar{

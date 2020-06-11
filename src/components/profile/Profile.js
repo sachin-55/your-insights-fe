@@ -75,9 +75,9 @@ try{
     return (
       <>
         {redirect ===true ? <Redirect to='/'/>:
-        <Box sx={{width:'75%',minHeight:'90vh',margin:'0 auto',backgroundColor:'gray',display:'flex',flexDirection:'row'}}>
+        <Box sx={{width:['95%','75%'],minHeight:'90vh',margin:'0 auto',backgroundColor:'gray',display:'flex',flexDirection:'row'}}>
               
-                <Box sx={{backgroundColor:'primary',paddingLeft:'4',flex:'1',display:'flex',flexDirection:'column',alignItems:'flex-start',flexBasis:'100px'}}>
+                <Box sx={{backgroundColor:'primary',paddingLeft:['1','4'],flex:'1',display:'flex',flexDirection:'column',alignItems:'flex-start',flexBasis:['50px','100px']}}>
                   
 
                     <Button 
@@ -92,7 +92,7 @@ try{
                         </Button>
 
                 </Box>
-                <Box sx={{backgroundColor:'transparent',paddingLeft:'4',flex:'3',width:'100%',marginBottom:3}}>
+                <Box sx={{backgroundColor:'transparent',paddingLeft:['2','4'],flex:'3',width:'100%',marginBottom:3}}>
                 <Box sx={{width:'100%',position:'relative'}}>
                     {confirmLogout === true?<DialogBox width='75%' loading={loading} closeDialog={()=>setConfirmLogout(false)} title={'Logout'} message={'Are you sure you want to logout?'} action={logout  }/>:null}
                 </Box>

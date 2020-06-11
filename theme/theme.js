@@ -1,4 +1,7 @@
 export default {
+  breakpoints: [
+    '40em', '56em', '64em',
+  ],
     space: [0, 4, 8, 16, 32, 64, 128, 256, 512],
     fonts: {
       body:
@@ -133,8 +136,8 @@ export default {
     },
     images: {
       avatar: {
-        width: 64,
-        height: 64,
+        width: [32,64],
+        height: [32,64],
         borderRadius: 50,
         padding: "5px"
       }

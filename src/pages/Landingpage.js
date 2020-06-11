@@ -103,6 +103,7 @@ const Landingpage = (props) => {
       </Box>
       :null}
 
+        <Box sx={{textAlign:'center',fontSize:5,color:'accent',textShadow:'1px 1px 3px black'}}>All Blogs</Box>
     <Container sx={{ width: "75vw",minHeight:'70vh', backgroundColor: "gray",display:'flex',justifyContent:'space-around',flexWrap:'wrap',paddingTop:5,paddingBottom:5 }}>
       
         {loading === true ?<h1>Loading ...</h1>:createBlogCards()}

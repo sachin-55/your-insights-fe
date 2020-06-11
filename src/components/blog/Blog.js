@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import ReactQuill from 'react-quill';
 import './blog.scss';
+import Comment from '../comment';
 
 const Blog = ({loggedIn}) => {
 
@@ -80,6 +81,12 @@ React.useEffect(()=>{
                             theme={"bubble"}
                             />
 
+                </Box>
+                <Box sx={{}}>
+                    <Box sx={{backgroundColor:'primary',textAlign:'center',fontSize:4,color:'accent',textShadow:'1px 1px black'}}>
+                        Comments
+                    </Box>
+                    <Comment/>
                 </Box>
             </Box>
             :null}

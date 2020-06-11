@@ -3,7 +3,7 @@ import { Box, Text, Avatar,useColorMode } from "theme-ui";
 import { Link,useLocation } from "react-router-dom";
 import Button from './../button';
 import './titlebar.scss'
-const Titlebar = ({ loggedIn,scrollToRef }) => { 
+const Titlebar = ({ loggedIn,scrollToRef}) => { 
   const [mode,setMode] = useColorMode();
   const location = useLocation();
   const [name,setName] = React.useState(''); 
@@ -12,13 +12,17 @@ const Titlebar = ({ loggedIn,scrollToRef }) => {
 
 React.useEffect(()=>{
   
+  if(location.search === '?login'){
+    scrollToRef();
+  }
+
     if(localStorage.hasOwnProperty('user')&& localStorage.getItem('user') !=='' ){
       const user=JSON.parse(localStorage.getItem('user'));
       setName(user.fullname.split(' ')[0]);
       setPhoto(user.photo);
     
   }
-},[localStorage.getItem('user')])
+},[localStorage.getItem('user'),location.search])
 
   const toggleTheme=(e)=>{
     e.preventDefault();
@@ -40,11 +44,12 @@ React.useEffect(()=>{
           lineHeight: "1.5",
           display: "flex",
           flexDirection: "column",
-          textAlign: "center"
+          textAlign: [ "left"," center" ],
+          padding:[4,0]
         }}
       >
-        <Text sx={{ fontSize: 2 }}>Your's</Text>
-        <Text sx={{ fontSize: 5 }}>Insights</Text>  
+        <Text sx={{ fontSize: [3,2] }}>Your's</Text>
+        <Text sx={{ fontSize: [4,5] }}>Insights</Text>  
       </Box>
     </Box>
     </Link>
@@ -64,7 +69,7 @@ React.useEffect(()=>{
           fontSize: 3
         }}
       >
-        <Button style={{ outline:'none' ,cursor:'pointer', color: "#dfe3e8" }} onClick={toggleTheme}>
+        <Button style={{ outline:'none',backgroundColor:'transparent',transform:'scale(0.6)','&:hover':{transform:'scale(1)'} ,cursor:'pointer', color: "#dfe3e8" }} onClick={toggleTheme}>
         {mode === 'dark'? '💡': '⚫️'}
         </Button>
         {/* <Box>{loggedIn}</Box> */}
@@ -110,11 +115,13 @@ React.useEffect(()=>{
       fontSize: 3
     }}
   >
-    <Button style={{ borderRadius : '0',outline:'none' ,cursor:'pointer', color: "#dfe3e8" }} onClick={toggleTheme}>
+    <Button className='toggle-button' style={{ borderRadius : '0',backgroundColor:'transparent',transform:'scale(0.5)','&:hover':{transform:'scale(1)'},outline:'none' ,cursor:'pointer', color: "#dfe3e8" }} onClick={toggleTheme}>
     {mode === 'dark'? '💡': '⚫️'}
     </Button>
+    {location.pathname === '/'?
     <Button sx={{outline:'none','&:hover':{color:'secondary'}}} onClick={scrollToRef}>Login/SignUp</Button>
-
+    :<Link to='/?login' className='link login-link'>Login/SignUp</Link>
+  }
   </Box>}
 
   </Box>
