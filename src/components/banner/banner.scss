@@ -1,24 +1,11 @@
 .banner{
-height: 95vh;
+// background-image:linear-gradient(to bottom, rgba(245, 246, 252, 0.52), #ED6A5A), url('https://res.cloudinary.com/nihcas/image/upload/v1587222428/zl8q96ehjk2hlpbf9qfc.jpg') ;
+// background-repeat: no-repeat;
+// background-size: cover;
+// background-attachment: fixed;
 overflow: hidden;
-background-image:linear-gradient(to bottom, rgba(245, 246, 252, 0.52), #ED6A5A), url('https://res.cloudinary.com/nihcas/image/upload/v1587222428/zl8q96ehjk2hlpbf9qfc.jpg') ;
-background-repeat: no-repeat;
-background-size: cover;
-background-attachment: fixed;
-background-color: blue;
 } 
-.banner .screen{
-    width:80%;
-    height: 400px;
-    margin:0 auto;
-    overflow: hidden;
-    border: 5px ridge rgb(209, 130, 130);
-    box-shadow: inset 0px -2px 100px 1px rgb(56, 20, 20),
-                inset 0px 2px 100px 1px  rgb(250, 196, 196);
-    border-radius: 50px;
-    position:relative;
-    top:50px;
-}
+
 .banner .banner-wrapper{
     width: 100%;
     margin:0 auto;
@@ -26,32 +13,35 @@ background-color: blue;
     perspective: 3000px;
     transform-style: preserve-3d;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    animation: slideUp 15s ease-in-out infinite reverse;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+
 }
+
+
+
 .banner .banner-wrapper > div{
     background-color: red;
-    margin: 0 0 10px;
-    border:6px ridge #ED6A5A;
-    border-radius: 50px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    padding: 136px 0 ;
+    padding: 90px 0 ;
+    width: 50%;
+
 }
 .banner .banner-wrapper > div div{ 
     background-size: cover;
     background-position: center;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 1px #ED6A5A;
+    -webkit-text-stroke: 0.5px #000;
     font-size: 70px;
     font-weight: 900;
 }
 
 .banner .banner-wrapper > div:nth-child(1){
-    background-image:linear-gradient(90deg,rgba(0,0,0,0.6),rgba(0,0,0,0.6)) ,url('https://1.bp.blogspot.com/-8fODRrbzMyg/Xm5OhGELYXI/AAAAAAAAB_8/MmPcvTa-F0YZkWylzZFFRyQACH8V9tHZQCLcBGAsYHQ/s1600/Yz%2Bcreation%2B2020%2B%252816%2529.jpg') ;
+    background-image:linear-gradient(90deg,rgba(30,20,30,0.8),rgba(30,20,30,0.8)) ,url('https://1.bp.blogspot.com/-8fODRrbzMyg/Xm5OhGELYXI/AAAAAAAAB_8/MmPcvTa-F0YZkWylzZFFRyQACH8V9tHZQCLcBGAsYHQ/s1600/Yz%2Bcreation%2B2020%2B%252816%2529.jpg') ;
 
 }
 .banner .banner-wrapper > div:nth-child(1) div{
@@ -59,7 +49,7 @@ background-color: blue;
 }
 
 .banner .banner-wrapper > div:nth-child(2){
-    background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('https://wallpaperaccess.com/full/503216.jpg') ;
+    background-image:linear-gradient(rgba(30,20,30,0.8),rgba(30,20,30,0.8)), url('https://wallpaperaccess.com/full/503216.jpg') ;
 
 }
 .banner .banner-wrapper > div:nth-child(2) div{
@@ -67,7 +57,7 @@ background-color: blue;
 
 }
 .banner .banner-wrapper > div:nth-child(3){
-    background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('https://wallpapertag.com/wallpaper/full/c/c/b/143196-nature-background-hd-2304x1440-notebook.jpg') ;
+    background-image:linear-gradient(rgba(30,20,30,0.8),rgba(30,20,30,0.8)), url('https://wallpapertag.com/wallpaper/full/c/c/b/143196-nature-background-hd-2304x1440-notebook.jpg') ;
 
 }
 .banner .banner-wrapper > div:nth-child(3) div{
@@ -75,34 +65,13 @@ background-color: blue;
 
 }
 .banner .banner-wrapper > div:nth-child(4){
-    background-image:linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)), url('https://wallpaperheart.com/wp-content/uploads/2018/03/hd-background-wallpapers-free-amazing-cool-tablet-high-definition.jpg') ;
+    background-image:linear-gradient(rgba(30,20,30,0.8),rgba(30,20,30,0.8)), url('https://wallpaperheart.com/wp-content/uploads/2018/03/hd-background-wallpapers-free-amazing-cool-tablet-high-definition.jpg') ;
 
 }
 .banner .banner-wrapper > div:nth-child(4) div{
     background-image:url('https://wallpaperheart.com/wp-content/uploads/2018/03/hd-background-wallpapers-free-amazing-cool-tablet-high-definition.jpg');
 }
 
-@keyframes slideUp{
-    0%{
-        transform: translateY(0px);
-    }
-    31%{
-        transform: translateY(-400px);
-
-    }
-    62%{
-        transform: translateY(-800px);
-
-    }
-    96%{
-        transform: translateY(-1200px);
-    }
-    100%{
-        transform: translateY(0px);
-    }
-
-
-}
 
 
 @media screen and (max-width:1000px){
@@ -118,31 +87,5 @@ background-color: blue;
     .banner .screen{
         height:340px;
     }
-
-
-@keyframes slideUp{
-    0%{
-        transform: translateY(0px);
-    }
-    31%{
-        transform: translateY(-345px);
-
-    }
-    62%{
-        transform: translateY(-685px);
-
-    }
-    96%{
-        transform: translateY(-1030px);
-    }
-    100%{
-        transform: translateY(0px);
-    }
-
-
-}
-
-
-
 
 }
