@@ -1,22 +1,7 @@
 .blog-title{
-   background: linear-gradient(0deg, 
-   #CA4246 16.666%, 
-   #E16541 16.666%, 
-   #E16541 33.333%, 
-   #F18F43 33.333%, 
-   #F18F43 50%, 
-   #8B9862 50%, 
-   #8B9862 66.666%, 
-   #476098 66.666%, 
-   #476098 83.333%, 
-   #A7489B 83.333%);
-   // background: url('https://res.cloudinary.com/nihcas/image/upload/v1587545853/Summer-Wallpaper-HD-Widescreen_sbaty7.jpg') ;
-   // background-size: contain;
--webkit-background-clip: text;
--webkit-text-fill-color: transparent;
--webkit-text-stroke: medium;
+ 
 }
 .avatar-container-blog{
    // clip-path: url(#myClip)
-   clip-path: polygon(0% 0%, 75% 0%, 91% 53%, 75% 100%, 0% 100%);
+   // clip-path: polygon(0% 0%, 75% 0%, 91% 53%, 75% 100%, 0% 100%);
 }

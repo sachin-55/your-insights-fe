@@ -1,14 +1,15 @@
 import React from 'react';
 import Titlebar from "../titlebar";
-import { Box,Avatar } from 'theme-ui';
+import { Box,Avatar, useThemeUI } from 'theme-ui';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 import ReactQuill from 'react-quill';
 import './blog.scss';
 import Comment from '../comment';
+import { formatISO } from 'date-fns';
 
 const Blog = ({loggedIn}) => {
-
+const {theme}=useThemeUI();
     const [data,setData]=React.useState('');
     const {blogId} = useParams();
     const con ="  ";
@@ -51,13 +52,13 @@ React.useEffect(()=>{
             <Box sx={{width:'75%', backgroundColor:'gray',margin:'0 auto'}}>
                 <Box 
                 className="blog-title"
-                sx={{borderBottom:'5px solid #ED6A5A',textAlign:'center',padding:[3,2],lineHeight:[1] ,fontWeight:'bold',fontSize:[4,6],
-                color:'rgb(100, 100, 100)' }}>
+                sx={{borderBottom:`5px solid ${theme.colors.primary}`,textAlign:'center',padding:[3,2],lineHeight:[1] ,fontWeight:'bold',fontSize:[4,6],
+                color:theme.colors.secondary }}>
 									{data.title}
                 </Box>
-                <Box sx={{backgroundColor:'accent',color:'white',display:'flex',flexDirection:'row',justifyContent:'flex-start',alignItems:'center',marginTop:2,paddingRight:'2'}}>
+                <Box sx={{backgroundColor:'accent',color:'white',display:'flex',flexDirection:'row',justifyContent:'flex-start',alignItems:'center',marginTop:2,padding:'3'}}>
                        <Box className="avatar-container-blog">
-                            <Avatar src={data.user.photo} sx={{width:'150px',height:'150px',borderRadius:'20px'}}/>
+                            <Avatar src={data.user.photo} sx={{width:'100px',height:'100px',borderRadius:'50%'}}/>
                                 {/* <svg width="0" height="0">
                                     <defs>
                                         <clipPath id="myClip">
@@ -68,9 +69,12 @@ React.useEffect(()=>{
                                 </svg> */}
 
                        </Box>
-                        <Box sx={{display:'flex',flexDirection:'column',justifyContent:'flex-start',alignItems:'flex-start',fontSize:'3',color:'gray'}}>
+                        <Box sx={{display:'flex',flexDirection:'column',justifyContent:'flex-start',alignItems:'flex-start',fontSize:'3',color:'gray', marginLeft:'10px'}}>
                             <Box sx={{textTransform:'capitalize'}}>{data.user.fullname}</Box>
-                            <Box>Date: {createdDate.split('GMT')[0]}</Box>
+                            <Box sx={{fontSize:'14px'}}>
+                                 {data && formatISO(new Date(data.createdAt),{representation:'date'})}
+                            {/* {createdDate.split('GMT')[0] */}
+                            </Box>
                         </Box>
                    </Box>
                 <Box sx={{width:'80%',margin:'0 auto',paddingTop:'4',paddingBottom:'4'}}>

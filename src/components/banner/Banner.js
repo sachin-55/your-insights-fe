@@ -1,36 +1,61 @@
 import React from "react";
-import { Box, Text } from "theme-ui";
+import { Box, Text, useThemeUI } from "theme-ui";
 import './banner.scss';
 import '../../../theme/theme';
-
-const Banner = () => (
+import BannerBg from '../../assets/banner_bg.jpg';
+import DarkBannerBg from '../../assets/night_banner_bg.jpg';
+const Banner = () => {
+  const { theme,colorMode }=useThemeUI();
+  const BannerImage = colorMode !== 'dark'?BannerBg:DarkBannerBg;
+   return (
   <Box 
     sx={{
-      backgroundColor: 'rgba(255, 153, 0,0.7)',
       color: "accent",
       // paddingTop: "7",
       // paddingBottom: "7",
       textAlign: "center",
+      backgroundImage:`url(${BannerImage})}})`,
     }}
     className="banner"
   >
     <Text sx={{
-      position:'absolute', top:'50%',left:'50%',transform:'translate(-50%,calc(-50% + 25px))',zIndex:1,
       fontSize: 6,
       color:'primary',
       fontWeight:'900',
-      padding:'3',
-      borderRadius:'50%',
-      textShadow:'2px 2px 3px #000',
-      background:"linear-gradient(to bottom, rgba(0,0,0, 0.7),  rgba(0,0,0, 0.7)),url('https://res.cloudinary.com/nihcas/image/upload/v1587222428/zl8q96ehjk2hlpbf9qfc.jpg')",
+      textShadow:`2px 2px 3px ${theme.colors.secondary}`,
       }}>Share Your's </Text>
-      <div className='banner-wrapper'>
-        <div><div>Ideas</div></div>     
-        <div><div>Knowledge</div></div>     
-        <div><div>Views</div></div>     
-        <div><div>Experience</div></div>   
-      </div>
+     
+     <Box className='banner-content'>
+      
+      <Text 
+      sx={{
+              color:'altText',
+              textShadow:`0px 0px 3px ${theme.colors.text}`
+      }}
+      className='banner-subText' >Ideas</Text>
+      <Text 
+      sx={{
+        color:'altText',
+        textShadow:`0px 0px 3px ${theme.colors.text}`
+
+      }}
+      className='banner-subText'>Knowledge</Text>
+      <Text 
+      sx={{
+        color:'altText',
+        textShadow:`0px 0px 3px ${theme.colors.text}`
+
+      }}
+      className='banner-subText'>Views</Text>
+      <Text 
+      sx={{
+        color:'altText',
+        textShadow:`0px 0px 3px ${theme.colors.text}`
+
+      }}
+      className='banner-subText'>Experiences</Text>
+     </Box>
   </Box>
-);
+)};
 
 export default Banner;

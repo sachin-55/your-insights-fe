@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Box, Label, Input, Textarea } from "theme-ui";
+import { Container, Box, Label, Input, Textarea, useThemeUI } from "theme-ui";
 import BackDimLight from "../dimbackground";
 import Button from "../button";
 import Editor from '../editor';
@@ -12,6 +12,7 @@ const CreatePost = ({ closePost,initialTitle,initialContent,id,type }) => {
   const [files, setFiles] = React.useState([]);
   const [loading,setLoading]= React.useState(false);
 const history=useHistory();
+const {theme} = useThemeUI();
 
   const onTitleChange =(e)=>{
     const target = e.target;
@@ -106,8 +107,9 @@ alert(err.response.data.message)
         marginLeft:'-37vw',
         marginBottom: "20px",
         zIndex: 40,
-        boxShadow: "0px 0px 20px 10px inset black",
-        borderRadius: 10
+        borderRadius: 10,
+        minHeight:'82vh',
+        border:`7px solid ${theme.colors.primary}`,
       }}
     >
       <Box
@@ -127,12 +129,13 @@ alert(err.response.data.message)
         <Label htmlFor="postTitle">Post Title</Label>
         <Input name="postTitle" value={title} mb={3} sx={{ outline: "none" }} onChange={onTitleChange}/>
         <Label htmlFor="post">Post</Label>
+
         <Editor
         initialContent={initialContent}
         placeholder="Start Posting Something"
         onEditorChange={onEditorChange}
         onFilesChange={onFilesChange}
-      />
+        />
       {type==='create'? <Button
           type="submit"
           onClick={handleSubmit}

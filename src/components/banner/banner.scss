@@ -1,91 +1,21 @@
 .banner{
-// background-image:linear-gradient(to bottom, rgba(245, 246, 252, 0.52), #ED6A5A), url('https://res.cloudinary.com/nihcas/image/upload/v1587222428/zl8q96ehjk2hlpbf9qfc.jpg') ;
-// background-repeat: no-repeat;
-// background-size: cover;
-// background-attachment: fixed;
-overflow: hidden;
+background-color: #fff;
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
 } 
 
-.banner .banner-wrapper{
-    width: 100%;
-    margin:0 auto;
-    position: relative; 
-    perspective: 3000px;
-    transform-style: preserve-3d;
+.banner-content{
+    padding:50px 10px;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    align-items: center;
     justify-content: space-evenly;
-
+    flex-wrap: wrap-reverse;
+   
 }
-
-
-
-.banner .banner-wrapper > div{
-    background-color: red;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    padding: 90px 0 ;
-    width: 50%;
-
-}
-.banner .banner-wrapper > div div{ 
-    background-size: cover;
-    background-position: center;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    -webkit-text-stroke: 0.5px #000;
-    font-size: 70px;
-    font-weight: 900;
-}
-
-.banner .banner-wrapper > div:nth-child(1){
-    background-image:linear-gradient(90deg,rgba(30,20,30,0.8),rgba(30,20,30,0.8)) ,url('https://1.bp.blogspot.com/-8fODRrbzMyg/Xm5OhGELYXI/AAAAAAAAB_8/MmPcvTa-F0YZkWylzZFFRyQACH8V9tHZQCLcBGAsYHQ/s1600/Yz%2Bcreation%2B2020%2B%252816%2529.jpg') ;
-
-}
-.banner .banner-wrapper > div:nth-child(1) div{
-    background-image:url('https://1.bp.blogspot.com/-8fODRrbzMyg/Xm5OhGELYXI/AAAAAAAAB_8/MmPcvTa-F0YZkWylzZFFRyQACH8V9tHZQCLcBGAsYHQ/s1600/Yz%2Bcreation%2B2020%2B%252816%2529.jpg') ;
-}
-
-.banner .banner-wrapper > div:nth-child(2){
-    background-image:linear-gradient(rgba(30,20,30,0.8),rgba(30,20,30,0.8)), url('https://wallpaperaccess.com/full/503216.jpg') ;
-
-}
-.banner .banner-wrapper > div:nth-child(2) div{
-    background-image:url('https://wallpaperaccess.com/full/503216.jpg');
-
-}
-.banner .banner-wrapper > div:nth-child(3){
-    background-image:linear-gradient(rgba(30,20,30,0.8),rgba(30,20,30,0.8)), url('https://wallpapertag.com/wallpaper/full/c/c/b/143196-nature-background-hd-2304x1440-notebook.jpg') ;
-
-}
-.banner .banner-wrapper > div:nth-child(3) div{
-    background-image:url('https://wallpapertag.com/wallpaper/full/c/c/b/143196-nature-background-hd-2304x1440-notebook.jpg');
-
-}
-.banner .banner-wrapper > div:nth-child(4){
-    background-image:linear-gradient(rgba(30,20,30,0.8),rgba(30,20,30,0.8)), url('https://wallpaperheart.com/wp-content/uploads/2018/03/hd-background-wallpapers-free-amazing-cool-tablet-high-definition.jpg') ;
-
-}
-.banner .banner-wrapper > div:nth-child(4) div{
-    background-image:url('https://wallpaperheart.com/wp-content/uploads/2018/03/hd-background-wallpapers-free-amazing-cool-tablet-high-definition.jpg');
-}
-
-
-
-@media screen and (max-width:1000px){
-    .banner .banner-wrapper>div{
-        font-size: 4em;
-        height: 70%;
-    }
-}
-@media screen and (max-width:600px){
-    .banner .banner-wrapper>div div{
-        font-size: 2rem;
-    }
-    .banner .screen{
-        height:340px;
-    }
-
+.banner-subText{
+    font-size:2rem;
+    color: #000;
+    font-weight: 500;
+    
 }
