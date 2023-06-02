@@ -64,7 +64,7 @@ setLoading(true)
     }
 
     return (
-      <Box sx={{display:'flex',flexDirection:'column',border:'1px solid black',boxShadow:' 0px 0px 20px 3px rgba(0,0,0,0.5)',marginBottom:'5',width:'40%',minWidth:'300px',height:'400px',backgroundColor:'background'}}>
+      <Box sx={{display:'flex',borderRadius:'10px',flexDirection:'column',border:'1px solid black',boxShadow:' 0px 0px 20px 3px rgba(0,0,0,0.5)',marginBottom:'5',width:'40%',minWidth:'300px',height:'400px',backgroundColor:'background',overflow:'hidden'}}>
         <Box sx={{position:'relative',height:'100%',overflow:'hidden'}}>
         <Box sx={{textAlign:'center',textTransform:'uppercase',fontSize:'18px',fontWeight:'bold'}}>
             {title}

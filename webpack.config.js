@@ -1,6 +1,6 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const path = require('path')
-const Fiber = require('fibers');
+// const Fiber = require('fibers');
 const webpack = require("webpack");
 const dotenv = require("dotenv");
 const CopyPlugin =require("copy-webpack-plugin");
@@ -53,9 +53,9 @@ module.exports = {
                         loader: 'sass-loader',
                         options: {
                             implementation: require('dart-sass'),
-                            sassOptions: {
-                                fiber: Fiber,
-                            },
+                            // sassOptions: {
+                            //     fiber: Fiber,
+                            // },
                         },
                     },
                 ],
@@ -65,6 +65,13 @@ module.exports = {
                 use: [
                     {
                         loader: 'file-loader',
+                        options:{
+                            name:'[name].[hash:6].[ext]',
+                            outputPath:'assets',
+                            publicPath:'assets',
+                            emitFile:true,
+                            esModule:false
+                        }
                     },
                 ],
             },

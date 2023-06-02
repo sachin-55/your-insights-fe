@@ -32,14 +32,14 @@ export default {
       gray: "#dfe3e8",
       modes: {
         dark: {
-          text: "#000a",
+          text: "#d8d8d8",
           altText:'#090d1f',
           background: "#2e3c54",
           primary: "#1a2d5e",
           secondary: "#306869",
-          accent:'#47c1bf',
+          accent:'#066664',
           muted: "#e6e6e6",
-          gray:"rgb(111, 117, 128)"
+          gray:"	#A0A0A0"
         },
         papaya: {
           // this color mode will fallback to the root color object
@@ -132,15 +132,27 @@ export default {
       },
       img: {
         maxWidth: "100%"
-      }
+      },
+      
     },
     images: {
       avatar: {
-        width: [32,64],
-        height: [32,64],
+        width: 36,
+        height: 36,
         borderRadius: 50,
-        padding: "5px"
-      }
-    }
+      },
+     
+    },
+    buttons: {
+      secondary: {
+        fontWeight: 'bold',
+        color: 'white',
+        bg: 'primary',
+        '&:hover': {
+          bg: 'dark',
+        },
+      },
+    },
+
   };
   

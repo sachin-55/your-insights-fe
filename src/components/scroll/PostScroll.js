@@ -1,10 +1,10 @@
 import React from "react";
-import { Container } from "theme-ui";
+import { Container,Box,Text } from "theme-ui";
 import Card from '../card';
 import axios from 'axios';
 
 
-const PostScroll = () => {
+const PostScroll = ({setNewPost}) => {
 const [data,setData] = React.useState('');
 const [loading,setloading]=React.useState(true);
 
@@ -47,8 +47,21 @@ const createBlogCards = ()=>{
 
   return(
   <React.Fragment>
-    <Container sx={{ width: "75vw",minHeight:'70vh', backgroundColor: "gray",display:'flex',justifyContent:'space-around',flexWrap:'wrap',paddingTop:5,paddingBottom:5 }}>
-      {loading === true ?<h1>Loading ...</h1>:createBlogCards()}
+    <Container sx={{ width: "75vw",minHeight:'70vh', backgroundColor: "gray",display:'flex',justifyContent:'space-around',flexWrap:'wrap',alignItems:'center',padding:4,margin:'32px auto' }}>
+      {loading === true ?<Text sx={{fontWeight:'500', fontSize:'32px'}}>Loading Your's Insights ...</Text>
+      :
+      <>
+   {loading === false &&
+   data && data.length===0&& 
+   <Text mb={4} sx={{fontWeight:'500' , fontSize:'20px'}}>No Blogs Found. Create a New Blog.</Text>}
+      <Box sx={{display:'flex',alignItems:'center',justifyContent:'center',border:'1px solid black',boxShadow:' 0px 0px 20px 3px rgba(0,0,0,0.5)',marginBottom:'5',width:'40%',minWidth:'300px',height:'400px',backgroundColor:'gray', cursor:'pointer', fontSize:'2rem', fontWeight:'bold', borderRadius:'10px'}}
+        onClick={() => setNewPost(true)}
+      >
+        + Create New Post
+      </Box>
+      {data && data.length>0 && createBlogCards()}
+      </>
+      }
     </Container>
    
   </React.Fragment>

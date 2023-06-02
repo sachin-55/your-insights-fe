@@ -16,7 +16,7 @@ const Homepage = () => {
       {newPost === true ? (
         <CreatePost closePost={() => setNewPost(false)} type='create'/>
       ) : null}
-      <Button
+      {/* <Button
         sx={{
           backgroundColor: "secondary",
           width: "100%",
@@ -32,8 +32,8 @@ const Homepage = () => {
         onClick={() => setNewPost(true)}
       >
         Create New Post
-      </Button>
-      <PostScroll />
+      </Button> */}
+      <PostScroll setNewPost={setNewPost}/>
     
     </>
   );
